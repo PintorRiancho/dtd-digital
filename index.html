@@ -303,6 +303,176 @@
   }
 }
 
+ /* ===== PORTADA NUEVA ===== */
+.portada {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.hero-portada {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 36px;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f7f9fc 100%);
+  border: 1px solid #d9e1ea;
+  border-radius: 24px;
+  padding: 42px;
+  box-shadow: 0 10px 30px rgba(16, 61, 112, 0.08);
+}
+
+.hero-etiqueta {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #6d7c93;
+  margin-bottom: 14px;
+}
+
+.hero-portada h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.05;
+  color: var(--azul);
+  margin: 0 0 18px 0;
+}
+
+.hero-portada p {
+  font-size: 21px;
+  line-height: 1.6;
+  color: #42546a;
+  margin: 0 0 26px 0;
+  max-width: 680px;
+}
+
+.hero-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.boton-secundario {
+  background: white;
+  color: var(--azul);
+  border: 2px solid var(--azul);
+}
+
+.boton-secundario:hover {
+  background: #eef4fb;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-tarjeta {
+  background: white;
+  border: 1px solid #d9e1ea;
+  border-radius: 22px;
+  padding: 28px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 8px 24px rgba(16, 61, 112, 0.08);
+  text-align: center;
+}
+
+.hero-tarjeta img {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 18px auto;
+}
+
+.hero-tarjeta h3 {
+  color: var(--azul);
+  font-size: 28px;
+  margin: 0 0 10px 0;
+}
+
+.hero-tarjeta p {
+  font-size: 16px;
+  color: #5a6b80;
+  margin: 0;
+}
+
+.bloques-portada {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.bloque-portada {
+  background: white;
+  border: 1px solid #d9e1ea;
+  border-top: 5px solid var(--naranja);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 8px 20px rgba(16, 61, 112, 0.06);
+}
+
+.bloque-portada .etiqueta {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6d7c93;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.bloque-portada h3 {
+  color: var(--azul);
+  font-size: 30px;
+  margin: 0 0 12px 0;
+}
+
+.bloque-portada p {
+  color: #42546a;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .hero-portada {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+
+  .hero-visual {
+    justify-content: flex-start;
+  }
+
+  .bloques-portada {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-portada h1 {
+    font-size: 34px;
+  }
+
+  .hero-portada p {
+    font-size: 18px;
+  }
+
+  .hero-tarjeta {
+    max-width: 100%;
+  }
+
+  .bloque-portada h3 {
+    font-size: 26px;
+  }
+
+  .bloque-portada p {
+    font-size: 17px;
+  }
+}
   </style>
 </head>
 
@@ -329,48 +499,63 @@
 
 
   <main>
-    <section id="inicio">
-      <div class="introduccion">
-        <h2>Bienvenidos a DTD Digital</h2>
+<section id="inicio" class="portada">
+  <div class="hero-portada">
+    <div class="hero-texto">
+      <div class="hero-etiqueta">CEIP Pintor Agustín Riancho · Dinamización Digital</div>
+      <h1>Tecnología que inspira. Recursos que transforman el aula.</h1>
+      <p>
+        Un espacio para descubrir, compartir y aplicar recursos educativos
+        digitales con sentido pedagógico en Educación Infantil y Primaria.
+      </p>
+
+      <div class="hero-botones">
+        <a class="boton" href="#roboteca">Explorar la Roboteca</a>
+        <a class="boton boton-secundario" href="#biblioteca">Entrar en la Biblioteca</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-tarjeta">
+        <img src="mascota-roboteca.png" alt="Mascota de la Roboteca">
+        <h3>DTD Digital</h3>
         <p>
-          Un espacio para facilitar el uso educativo
-          de la tecnología, compartir recursos y
-          desarrollar experiencias de aprendizaje
-          en Educación Infantil y Primaria.
+          Recursos, experiencias y apoyo al profesorado para integrar la tecnología
+          de forma útil, creativa y educativa.
         </p>
       </div>
+    </div>
+  </div>
 
-      <div class="secciones">
-        <article class="tarjeta">
-          <div class="etiqueta">Recursos educativos</div>
-          <h3>Roboteca</h3>
-          <p>
-            Descubre los materiales de Robótica 4.0
-            y DigiCraft disponibles en el colegio,
-            sus aplicaciones didácticas y propuestas
-            para trabajar en el aula.
-          </p>
-          <a class="boton" href="#roboteca">
-            Explorar la Roboteca
-          </a>
-        </article>
+  <div class="bloques-portada">
+    <article class="bloque-portada">
+      <div class="etiqueta">Recursos educativos</div>
+      <h3>Roboteca</h3>
+      <p>
+        Materiales de robótica educativa, programación y pensamiento computacional
+        para usar en el centro y en el aula.
+      </p>
+    </article>
 
-        <article class="tarjeta">
-          <div class="etiqueta">Formación docente</div>
-          <h3>Biblioteca Digital DTD</h3>
-          <p>
-            Accede a nuestros e-books, tutoriales
-            y guías prácticas sobre Canva,
-            inteligencia artificial y otras
-            herramientas educativas.
-          </p>
-          <a class="boton" href="#biblioteca">
-            Explorar la biblioteca
-          </a>
-        </article>
-      </div>
-    </section>
+    <article class="bloque-portada">
+      <div class="etiqueta">Formación docente</div>
+      <h3>Biblioteca Digital</h3>
+      <p>
+        Guías, tutoriales, e-books y materiales prácticos sobre Canva, inteligencia
+        artificial y otras herramientas educativas.
+      </p>
+    </article>
 
+    <article class="bloque-portada">
+      <div class="etiqueta">Innovación educativa</div>
+      <h3>Compartir y crecer</h3>
+      <p>
+        Un entorno para recoger experiencias, propuestas y recursos que ayuden
+        a enriquecer la práctica docente del centro.
+      </p>
+    </article>
+  </div>
+</section>
    <section id="roboteca" class="oculto">
   <button class="volver" onclick="location.hash=''">
     ← Volver al inicio
