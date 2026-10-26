@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DTD Digital | CEIP Pintor Agustín Riancho</title>
+  <style>
+    :root {
+      --azul: #103d70;
+      --naranja: #ec8d25;
+      --fondo: #f5f7fa;
+      --texto: #253448;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      border-bottom: 3px solid var(--azul);
+      padding: 24px 6%;
+    }
+
+    .institucion {
+      color: var(--azul);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    header h1 {
+      color: var(--azul);
+      font-size: clamp(28px, 4vw, 42px);
+      margin: 8px 0;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 24px;
+    }
+
+    .introduccion {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .introduccion h2 {
+      color: var(--azul);
+      font-size: 27px;
+    }
+
+    .secciones {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .tarjeta {
+      background: white;
+      padding: 32px;
+      border: 1px solid #dce3eb;
+      border-top: 5px solid var(--naranja);
+      border-radius: 10px;
+      box-shadow: 0 3px 12px #1234560a;
+    }
+
+    .tarjeta h3 {
+      color: var(--azul);
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    .etiqueta {
+      color: #66758a;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 11px 20px;
+      background: var(--azul);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .boton:hover { background: #205a94; }
+
+    .oculto { display: none; }
+
+    .volver {
+      background: none;
+      border: none;
+      color: var(--azul);
+      font-weight: bold;
+      cursor: pointer;
+      padding: 0;
+      font-size: 15px;
+    }
+
+    footer {
+      margin-top: 45px;
+      padding: 24px;
+      text-align: center;
+      color: #66758a;
+      font-size: 13px;
+      border-top: 1px solid #dce3eb;
+    }
+
+    @media (max-width: 700px) {
+      .secciones { grid-template-columns: 1fr; }
+      main { padding: 28px 18px; }
+      .tarjeta { padding: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="institucion">
+      CEIP PINTOR AGUSTÍN RIANCHO
+    </div>
+    <h1>DINAMIZACIÓN DIGITAL</h1>
+    <p>Recursos, experiencias y apoyo al profesorado</p>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <div class="introduccion">
+        <h2>Bienvenidos a DTD Digital</h2>
+        <p>
+          Un espacio para facilitar el uso educativo
+          de la tecnología, compartir recursos y
+          desarrollar experiencias de aprendizaje
+          en Educación Infantil y Primaria.
+        </p>
+      </div>
+
+      <div class="secciones">
+        <article class="tarjeta">
+          <div class="etiqueta">Recursos educativos</div>
+          <h3>Roboteca</h3>
+          <p>
+            Descubre los materiales de Robótica 4.0
+            y DigiCraft disponibles en el colegio,
+            sus aplicaciones didácticas y propuestas
+            para trabajar en el aula.
+          </p>
+          <a class="boton" href="#roboteca">
+            Explorar la Roboteca
+          </a>
+        </article>
+
+        <article class="tarjeta">
+          <div class="etiqueta">Formación docente</div>
+          <h3>Biblioteca Digital DTD</h3>
+          <p>
+            Accede a nuestros e-books, tutoriales
+            y guías prácticas sobre Canva,
+            inteligencia artificial y otras
+            herramientas educativas.
+          </p>
+          <a class="boton" href="#biblioteca">
+            Explorar la biblioteca
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="roboteca" class="oculto">
+      <button class="volver" onclick="location.hash=''">
+        ← Volver al inicio
+      </button>
+      <h2>Roboteca</h2>
+      <p>Catálogo de recursos de Robótica 4.0 y DigiCraft.</p>
+      <p>Próximamente incorporaremos las fichas didácticas.</p>
+    </section>
+
+    <section id="biblioteca" class="oculto">
+      <button class="volver" onclick="location.hash=''">
+        ← Volver al inicio
+      </button>
+      <h2>Biblioteca Digital DTD</h2>
+      <p>Guías y e-books prácticos para el profesorado.</p>
+      <p>Próximamente: Canva e inteligencia artificial.</p>
+    </section>
+  </main>
+
+  <footer>
+    Dinamización Digital · CEIP Pintor Agustín Riancho
+  </footer>
+
+  <script>
+    function navegar() {
+      const destino = location.hash.substring(1);
+      const paginas = ["inicio", "roboteca", "biblioteca"];
+      const pagina = paginas.includes(destino) ? destino : "inicio";
+
+      paginas.forEach(id => {
+        document.getElementById(id).classList.toggle(
+          "oculto", id !== pagina
+        );
+      });
+
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("hashchange", navegar);
+    navegar();
+  </script>
+</body>
+</html>
