@@ -227,18 +227,105 @@
   }
 }
  
+ 
+/* CABECERA INSTITUCIONAL DTD */
+
+.cabecera-dtd {
+  background: #ffffff;
+  border-bottom: 1px solid #e1e7ef;
+  padding: 12px 5%;
+}
+
+.cabecera-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.cabecera-logo {
+  display: block;
+  flex-shrink: 0;
+}
+
+.cabecera-logo img {
+  display: block;
+  width: 290px;
+  max-width: 100%;
+  height: auto;
+}
+
+.menu-dtd {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.menu-dtd a {
+  color: #103d70;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.menu-dtd a:hover,
+.menu-dtd a:focus-visible {
+  color: #c66a0a;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 700px) {
+  .cabecera-dtd {
+    padding: 12px 5%;
+  }
+
+  .cabecera-contenido {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .cabecera-logo img {
+    width: 240px;
+  }
+
+  .menu-dtd {
+    gap: 18px;
+  }
+
+  .menu-dtd a {
+    font-size: 14px;
+  }
+}
+
   </style>
 </head>
 
 <body>
-<header>
-  <img
-    src="logo_dtd_nitido_4x.png"
-    alt="Dinamización Digital - CEIP Pintor Agustín Riancho"
-    style="width: 340px; max-width: 100%; height: auto;"
-  >
-  <p>Recursos, experiencias y apoyo al profesorado</p>
+<header class="cabecera-dtd">
+  <div class="cabecera-contenido">
+
+    <a href="#" class="cabecera-logo" aria-label="Ir al inicio">
+      <img
+        src="logo_dtd_nitido_4x.png"
+        alt="Dinamización Digital - CEIP Pintor Agustín Riancho"
+      >
+    </a>
+
+    <nav class="menu-dtd" aria-label="Navegación principal">
+      <a href="#">Inicio</a>
+      <a href="#roboteca">Roboteca</a>
+      <a href="#biblioteca">Biblioteca Digital</a>
+    </nav>
+
+  </div>
 </header>
+
 
 
   <main>
