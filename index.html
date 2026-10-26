@@ -125,6 +125,108 @@
       main { padding: 28px 18px; }
       .tarjeta { padding: 24px; }
     }
+
+/* DISEÑO INSTITUCIONAL DE ROBOTECA */
+
+.roboteca-hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  gap: 40px;
+  background: #ffffff;
+  border: 1px solid #dce3eb;
+  border-radius: 16px;
+  padding: 45px;
+  margin: 25px 0 35px;
+  overflow: hidden;
+}
+
+.roboteca-texto h2 {
+  color: #103d70;
+  font-size: clamp(36px, 5vw, 54px);
+  margin: 12px 0 20px;
+  letter-spacing: -1px;
+}
+
+.roboteca-intro {
+  color: #42546a;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 550px;
+}
+
+.roboteca-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.boton-secundario {
+  background: white;
+  color: #103d70;
+  border: 1px solid #103d70;
+}
+
+.boton-secundario:hover {
+  background: #edf3f9;
+}
+
+.roboteca-mascota {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roboteca-mascota img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+.roboteca-bloques {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 35px;
+}
+
+.bloque-categoria {
+  background: white;
+  border: 1px solid #dce3eb;
+  border-top: 4px solid #ec8d25;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.bloque-categoria h3 {
+  color: #103d70;
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.bloque-categoria p {
+  color: #42546a;
+}
+
+@media (max-width: 700px) {
+  .roboteca-hero {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    gap: 20px;
+  }
+
+  .roboteca-mascota img {
+    max-width: 180px;
+  }
+
+  .roboteca-bloques {
+    grid-template-columns: 1fr;
+  }
+}
+ 
   </style>
 </head>
 
