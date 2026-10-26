@@ -644,7 +644,9 @@ src="mascota-roboteca.png?v=2"
     function navegar() {
       const destino = location.hash.substring(1);
       const paginas = ["inicio", "roboteca", "biblioteca"];
-      const pagina = paginas.includes(destino) ? destino : "inicio";
+  const pagina = ["robotica40", "digicraft"].includes(destino)
+  ? "roboteca"
+  : (paginas.includes(destino) ? destino : "inicio");
 
       paginas.forEach(id => {
         document.getElementById(id).classList.toggle(
@@ -652,7 +654,14 @@ src="mascota-roboteca.png?v=2"
         );
       });
 
-      window.scrollTo(0, 0);
+if (destino === "robotica40" || destino === "digicraft") {
+  document.getElementById(destino).scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+} else {
+  window.scrollTo(0, 0);
+}
     }
 
     window.addEventListener("hashchange", navegar);
