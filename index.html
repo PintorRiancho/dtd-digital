@@ -740,6 +740,263 @@ color: var(--texto);
 #roboteca .etiqueta {
   color: #647C72;
 }
+ 
+/* ===== CATÁLOGO Y FICHAS DE ROBOTECA ===== */
+
+#roboteca .catalogo-dtd {
+  margin: 45px 0;
+}
+
+#roboteca .catalogo-encabezado {
+  margin-bottom: 24px;
+}
+
+#roboteca .catalogo-encabezado h3 {
+  color: #456D60;
+  font-size: clamp(26px, 3vw, 36px);
+  margin: 8px 0 10px;
+}
+
+#roboteca .catalogo-encabezado p {
+  color: #4C5752;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+#roboteca .ficha-dtd {
+  background: #FFFFFF;
+  border: 1px solid #D9E1DA;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(46, 57, 52, 0.05);
+}
+
+#roboteca .ficha-resumen {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  padding: 28px;
+  cursor: pointer;
+  list-style: none;
+}
+
+#roboteca .ficha-resumen::-webkit-details-marker,
+#roboteca .actividad-dtd summary::-webkit-details-marker {
+  display: none;
+}
+
+#roboteca .ficha-resumen:focus-visible,
+#roboteca .actividad-dtd summary:focus-visible {
+  outline: 3px solid #8062A1;
+  outline-offset: -3px;
+}
+
+#roboteca .ficha-foto {
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 16px;
+  background: #F1F4F0;
+  color: #647C72;
+  font-size: 14px;
+}
+
+#roboteca .ficha-coleccion {
+  color: #8062A1;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#roboteca .ficha-presentacion h4 {
+  color: #456D60;
+  font-size: 34px;
+  margin: 10px 0;
+}
+
+#roboteca .ficha-presentacion p {
+  color: #4C5752;
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+#roboteca .ficha-datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+#roboteca .ficha-datos span {
+  background: #E9F1EB;
+  color: #456D60;
+  border-radius: 30px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#roboteca .ficha-datos span:last-child {
+  background: #EEE8F7;
+  color: #60467D;
+}
+
+#roboteca .ficha-abrir {
+  color: #8062A1;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#roboteca .ficha-dtd[open] .ficha-abrir {
+  color: #456D60;
+}
+
+#roboteca .ficha-contenido {
+  border-top: 1px solid #D9E1DA;
+  padding: 8px 32px 32px;
+}
+
+#roboteca .ficha-apartado {
+  padding: 25px 0;
+  border-bottom: 1px solid #E4E9E3;
+}
+
+#roboteca .ficha-apartado h4,
+#roboteca .ficha-recursos h4 {
+  color: #456D60;
+  font-size: 23px;
+  margin: 0 0 16px;
+}
+
+#roboteca .ficha-apartado p,
+#roboteca .ficha-recursos p {
+  color: #4C5752;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+#roboteca .ficha-aprendizajes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  padding-left: 22px;
+  color: #2E3934;
+  line-height: 1.55;
+}
+
+#roboteca .actividad-dtd {
+  border: 1px solid #E1D7EC;
+  border-radius: 14px;
+  background: #FFFFFF;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+#roboteca .actividad-dtd summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  cursor: pointer;
+  list-style: none;
+  color: #60467D;
+}
+
+#roboteca .actividad-dtd summary strong {
+  display: block;
+  font-size: 17px;
+}
+
+#roboteca .actividad-dtd summary small {
+  display: block;
+  margin-top: 6px;
+  color: #647C72;
+  font-size: 13px;
+}
+
+#roboteca .actividad-indicador {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+#roboteca .actividad-dtd[open] .actividad-indicador {
+  transform: rotate(45deg);
+}
+
+#roboteca .actividad-contenido {
+  border-top: 1px solid #E1D7EC;
+  padding: 20px;
+  background: #FCFAFE;
+  color: #2E3934;
+}
+
+#roboteca .actividad-contenido ol {
+  padding-left: 22px;
+  line-height: 1.7;
+}
+
+#roboteca .actividad-contenido li {
+  margin: 8px 0;
+}
+
+#roboteca .ficha-recursos {
+  background: #EEE8F7;
+  padding: 24px;
+  border-radius: 16px;
+  margin-top: 28px;
+}
+
+#roboteca .ficha-recursos h4 {
+  color: #60467D;
+}
+
+#roboteca .ficha-recursos a,
+#roboteca .ficha-recursos a:visited {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #8062A1;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 9px;
+}
+
+#roboteca .ficha-recursos a:hover,
+#roboteca .ficha-recursos a:focus-visible {
+  background: #60467D;
+  color: #FFFFFF;
+}
+
+@media (max-width: 700px) {
+  #roboteca .ficha-resumen {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 18px;
+  }
+
+  #roboteca .ficha-foto {
+    min-height: 150px;
+  }
+
+  #roboteca .ficha-presentacion h4 {
+    font-size: 28px;
+  }
+
+  #roboteca .ficha-contenido {
+    padding: 6px 20px 24px;
+  }
+
+  #roboteca .ficha-aprendizajes {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
 
@@ -863,6 +1120,117 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
       </p>
     </article>
   </div>
+     
+<!-- Catálogo Robótica 4.0 -->
+<section class="catalogo-dtd" aria-labelledby="titulo-catalogo-40">
+  <div class="catalogo-encabezado">
+    <div class="etiqueta">Catálogo de materiales</div>
+    <h3 id="titulo-catalogo-40">Explora Robótica 4.0</h3>
+    <p>Selecciona un material para consultar sus características y propuestas de aula</p>
+  </div>
+
+  <!-- Ficha integrada de Bee-Bot -->
+  <details class="ficha-dtd">
+    <summary class="ficha-resumen">
+      <div class="ficha-foto">
+        <span>Fotografía de Bee-Bot pendiente</span>
+      </div>
+
+      <div class="ficha-presentacion">
+        <span class="ficha-coleccion">ROBÓTICA 4.0 · ROBOT DE SUELO</span>
+        <h4>Bee-Bot</h4>
+        <p>Programación de recorridos, orientación espacial y pensamiento computacional</p>
+        <div class="ficha-datos">
+          <span>Infantil y 1.º ciclo de Primaria</span>
+          <span>4 unidades</span>
+        </div>
+        <span class="ficha-abrir">Consultar ficha completa ↓</span>
+      </div>
+    </summary>
+
+    <div class="ficha-contenido">
+      <section class="ficha-apartado">
+        <h4>¿Qué podemos aprender?</h4>
+        <ul class="ficha-aprendizajes">
+          <li>Secuenciar instrucciones y anticipar resultados</li>
+          <li>Desarrollar la orientación espacial</li>
+          <li>Detectar y corregir errores</li>
+          <li>Resolver problemas de forma cooperativa</li>
+        </ul>
+      </section>
+
+      <section class="ficha-apartado">
+        <h4>Antes de empezar</h4>
+        <p>
+          Comprobar la carga del robot, seleccionar un tapete adecuado
+          y preparar los destinos del recorrido. Organizar turnos de
+          participación para que el alumnado pueda planificar,
+          programar, observar y revisar las instrucciones.
+        </p>
+        <p>
+          Materiales complementarios: tapete y, según la actividad,
+          tarjetas de instrucciones e imágenes de destinos.
+        </p>
+      </section>
+
+      <section class="ficha-apartado">
+        <h4>Llévalo al aula</h4>
+        <p>Dos propuestas que puedes desplegar para preparar la sesión</p>
+
+        <details class="actividad-dtd">
+          <summary>
+            <span>
+              <strong>01 · El viaje de Bee-Bot</strong>
+              <small>Infantil 4–5 años · 30–40 minutos</small>
+            </span>
+            <span class="actividad-indicador">+</span>
+          </summary>
+          <div class="actividad-contenido">
+            <p><strong>Objetivo:</strong> planificar y ejecutar una secuencia sencilla de movimientos hasta un destino.</p>
+            <ol>
+              <li>Presentar el tapete y elegir un destino reconocible</li>
+              <li>Anticipar oralmente el recorrido y ordenar las instrucciones</li>
+              <li>Introducir las instrucciones en Bee-Bot y ejecutarlas</li>
+              <li>Comprobar el resultado y corregir los posibles errores</li>
+            </ol>
+            <p><strong>Evaluación:</strong> observar si identifica el destino, anticipa movimientos y participa en la revisión del recorrido.</p>
+          </div>
+        </details>
+
+        <details class="actividad-dtd">
+          <summary>
+            <span>
+              <strong>02 · Dos caminos, un destino</strong>
+              <small>1.º–2.º de Primaria · 40–50 minutos</small>
+            </span>
+            <span class="actividad-indicador">+</span>
+          </summary>
+          <div class="actividad-contenido">
+            <p><strong>Objetivo:</strong> comparar recorridos y justificar distintas soluciones a un mismo reto.</p>
+            <ol>
+              <li>Marcar un punto de salida y un destino común</li>
+              <li>Planificar dos recorridos diferentes en pequeños equipos</li>
+              <li>Representar y ejecutar ambas secuencias</li>
+              <li>Comparar los resultados, los errores y el número de instrucciones</li>
+            </ol>
+            <p><strong>Evaluación:</strong> valorar si planifica, revisa y explica las diferencias entre los recorridos.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="ficha-recursos">
+        <h4>Recursos y guías</h4>
+        <p>Materiales complementarios disponibles en la carpeta compartida de Educantabria</p>
+        <a
+          href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgDNATwM_87uS54uQmr8BFf7ATMC3SAJ2AjZoQQ51-5xflU?e=bvdYMF"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir recursos de Bee-Bot ↗</a>
+      </section>
+    </div>
+  </details>
+</section>
+
 </section>
     <section id="biblioteca" class="oculto">
       <button class="volver" onclick="location.hash=''">
