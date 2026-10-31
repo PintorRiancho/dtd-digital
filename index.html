@@ -1005,6 +1005,114 @@ color: var(--texto);
   object-fit: contain;
   border-radius: 12px;
 }
+    
+/* ===== PROPUESTAS DIDÁCTICAS EN DOS COLUMNAS ===== */
+
+#roboteca .propuestas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px;
+  margin-top: 22px;
+}
+
+#roboteca .propuestas-grid .actividad-dtd {
+  margin: 0;
+  border: 1px solid #DDD0EA;
+  border-top: 4px solid #8062A1;
+  border-radius: 16px;
+  background: #FFFFFF;
+  overflow: hidden;
+  min-width: 0;
+  box-shadow: 0 5px 16px rgba(46, 57, 52, 0.04);
+}
+
+#roboteca .propuestas-grid .actividad-dtd summary {
+  display: block;
+  padding: 24px;
+  cursor: pointer;
+  list-style: none;
+  min-height: 225px;
+}
+
+#roboteca .propuestas-grid .actividad-resumen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+#roboteca .propuestas-grid .actividad-numero {
+  color: #8062A1;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#roboteca .propuestas-grid .actividad-resumen strong {
+  color: #456D60;
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+#roboteca .propuestas-grid .actividad-resumen small {
+  color: #647C72;
+  font-size: 14px;
+}
+
+#roboteca .propuestas-grid .actividad-descripcion {
+  color: #4C5752;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+#roboteca .propuestas-grid .actividad-enlace {
+  margin-top: 8px;
+  color: #8062A1;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#roboteca .propuestas-grid .actividad-dtd[open] {
+  border-color: #8062A1;
+}
+
+#roboteca .propuestas-grid .actividad-dtd[open] .actividad-enlace {
+  color: #456D60;
+}
+
+#roboteca .propuestas-grid .actividad-contenido {
+  padding: 22px;
+  border-top: 1px solid #E6DEED;
+  background: #FCFAFE;
+  overflow-wrap: break-word;
+}
+
+#roboteca .propuestas-grid .actividad-contenido p {
+  margin: 0 0 16px;
+}
+
+#roboteca .propuestas-grid .actividad-contenido ol,
+#roboteca .propuestas-grid .actividad-contenido ul {
+  padding-left: 22px;
+  margin: 0 0 20px;
+  line-height: 1.65;
+}
+
+#roboteca .propuestas-grid .actividad-contenido li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+  #roboteca .propuestas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #roboteca .propuestas-grid .actividad-dtd summary {
+    min-height: 0;
+  }
+}
+
   </style>
 </head>
 
@@ -1163,72 +1271,87 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
         </p>
       </section>
 
-      <section class="ficha-apartado">
-        <h4>Llévalo al aula</h4>
-        <p>Dos propuestas que puedes desplegar para preparar la sesión</p>
+      
+<section class="ficha-apartado">
+  <h4>Llévalo al aula</h4>
+  <p>Dos propuestas prácticas adaptadas a distintas edades</p>
 
-        <details class="actividad-dtd">
-          <summary>
-            <span>
-              <strong>01 · El viaje de Bee-Bot</strong>
-              <small>Infantil 4–5 años · 30–40 minutos</small>
-            </span>
-            <span class="actividad-indicador">+</span>
-          </summary>
-        
-<div class="actividad-contenido">
-  <p><strong>Propuesta:</strong> Programar Bee-Bot para llegar a un destino determinado, anticipando los movimientos y comprobando el recorrido.</p>
+  <div class="propuestas-grid">
 
-  <p><strong>Desarrollo:</strong></p>
-  <ol>
-    <li>Presentar el tapete y elegir un destino reconocible para el alumnado.</li>
-    <li>Planificar el recorrido y ordenar las instrucciones necesarias.</li>
-    <li>Introducir las instrucciones en Bee-Bot y ejecutar el recorrido.</li>
-    <li>Comprobar el resultado y modificar las instrucciones si es necesario.</li>
-  </ol>
+    <!-- PROPUESTA 01 -->
+    <details class="actividad-dtd">
+      <summary>
+        <span class="actividad-resumen">
+          <span class="actividad-numero">PROPUESTA 01</span>
+          <strong>El viaje de Bee-Bot</strong>
+          <small>Infantil 4–5 años · 30–40 minutos</small>
+          <span class="actividad-descripcion">
+            Programar un recorrido hasta un destino y comprobar el resultado.
+          </span>
+          <span class="actividad-enlace">Consultar desarrollo ↓</span>
+        </span>
+      </summary>
 
-  <p><strong>Indicadores de logro:</strong></p>
-  <ul>
-    <li>Identifica el destino al que debe llegar Bee-Bot.</li>
-    <li>Anticipa y ordena una secuencia sencilla de movimientos.</li>
-    <li>Comprueba si el recorrido coincide con el previsto.</li>
-    <li>Reconoce y corrige errores con los apoyos que necesita.</li>
-  </ul>
-</div>
+      <div class="actividad-contenido">
+        <p><strong>Propuesta:</strong> Programar Bee-Bot para llegar a un destino determinado, anticipando los movimientos y comprobando el recorrido.</p>
 
-        <details class="actividad-dtd">
-          <summary>
-            <span>
-              <strong>02 · Dos caminos, un destino</strong>
-              <small>1.º–2.º de Primaria · 40–50 minutos</small>
-            </span>
-            <span class="actividad-indicador">+</span>
-          </summary>
-         
-<div class="actividad-contenido">
-  <p><strong>Propuesta:</strong> Diseñar y comparar dos recorridos diferentes para llegar a un mismo destino, utilizando Bee-Bot y justificando las soluciones.</p>
+        <p><strong>Desarrollo:</strong></p>
+        <ol>
+          <li>Presentar el tapete y elegir un destino reconocible para el alumnado.</li>
+          <li>Planificar el recorrido y ordenar las instrucciones necesarias.</li>
+          <li>Introducir las instrucciones en Bee-Bot y ejecutar el recorrido.</li>
+          <li>Comprobar el resultado y modificar las instrucciones si es necesario.</li>
+        </ol>
 
-  <p><strong>Desarrollo:</strong></p>
-  <ol>
-    <li>Establecer un punto de partida y un destino común.</li>
-    <li>Organizar pequeños equipos para planificar recorridos diferentes.</li>
-    <li>Representar las secuencias de instrucciones y probarlas con Bee-Bot.</li>
-    <li>Comparar los recorridos y el número de instrucciones utilizadas.</li>
-    <li>Revisar las secuencias y explicar posibles mejoras.</li>
-  </ol>
+        <p><strong>Indicadores de logro:</strong></p>
+        <ul>
+          <li>Identifica el destino al que debe llegar Bee-Bot.</li>
+          <li>Anticipa y ordena una secuencia sencilla de movimientos.</li>
+          <li>Comprueba si el recorrido coincide con el previsto.</li>
+          <li>Reconoce y corrige errores con los apoyos que necesita.</li>
+        </ul>
+      </div>
+    </details>
 
-  <p><strong>Indicadores de logro:</strong></p>
-  <ul>
-    <li>Planifica una secuencia ordenada de instrucciones para alcanzar el destino.</li>
-    <li>Ejecuta y comprueba el recorrido diseñado.</li>
-    <li>Identifica diferencias entre dos soluciones posibles.</li>
-    <li>Propone modificaciones para corregir errores o mejorar el recorrido.</li>
-    <li>Explica sus decisiones y participa en el trabajo cooperativo.</li>
-  </ul>
-</div>
+    <!-- PROPUESTA 02 -->
+    <details class="actividad-dtd">
+      <summary>
+        <span class="actividad-resumen">
+          <span class="actividad-numero">PROPUESTA 02</span>
+          <strong>Dos caminos, un destino</strong>
+          <small>1.º–2.º de Primaria · 40–50 minutos</small>
+          <span class="actividad-descripcion">
+            Diseñar dos recorridos, comparar soluciones y explicar las decisiones.
+          </span>
+          <span class="actividad-enlace">Consultar desarrollo ↓</span>
+        </span>
+      </summary>
 
-        </details>
-      </section>
+      <div class="actividad-contenido">
+        <p><strong>Propuesta:</strong> Diseñar y comparar dos recorridos diferentes para llegar a un mismo destino, utilizando Bee-Bot y justificando las soluciones.</p>
+
+        <p><strong>Desarrollo:</strong></p>
+        <ol>
+          <li>Establecer un punto de partida y un destino común.</li>
+          <li>Organizar pequeños equipos para planificar recorridos diferentes.</li>
+          <li>Representar las secuencias de instrucciones y probarlas con Bee-Bot.</li>
+          <li>Comparar los recorridos y el número de instrucciones utilizadas.</li>
+          <li>Revisar las secuencias y explicar posibles mejoras.</li>
+        </ol>
+
+        <p><strong>Indicadores de logro:</strong></p>
+        <ul>
+          <li>Planifica una secuencia ordenada de instrucciones para alcanzar el destino.</li>
+          <li>Ejecuta y comprueba el recorrido diseñado.</li>
+          <li>Identifica diferencias entre dos soluciones posibles.</li>
+          <li>Propone modificaciones para corregir errores o mejorar el recorrido.</li>
+          <li>Explica sus decisiones y participa en el trabajo cooperativo.</li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
+</section>
 
       <section class="ficha-recursos">
         <h4>Recursos y guías</h4>
