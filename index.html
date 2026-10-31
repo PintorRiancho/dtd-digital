@@ -633,6 +633,65 @@ color: var(--texto);
   border-color: #8062A1;
   color: #60467D;
 }
+  /* Mascotas de DTD Digital: imágenes con fondo transparente */
+.hero-visual > img,
+.roboteca-mascota img,
+.biblioteca-mascota img,
+.compartir-mascota img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: transparent;
+  mix-blend-mode: normal;
+}
+
+/* Posición de las mascotas */
+.roboteca-mascota,
+.biblioteca-mascota,
+.compartir-mascota {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mascota de Compartir y crecer */
+.compartir-mascota {
+  margin: 24px 0 30px;
+}
+
+.compartir-mascota img {
+  width: 100%;
+  max-width: 240px;
+}
+/* Colores definitivos de las tarjetas de Inicio */
+.bloques-portada > a.bloque-portada,
+.bloques-portada > a.bloque-portada:link,
+.bloques-portada > a.bloque-portada:visited,
+.bloques-portada > a.bloque-portada:hover,
+.bloques-portada > a.bloque-portada:active,
+.bloques-portada > a.bloque-portada:focus-visible {
+  color: #2E3934;
+  text-decoration: none;
+}
+
+.bloques-portada > a.bloque-portada h3 {
+  color: #456D60;
+}
+
+.bloques-portada > a.bloque-portada p {
+  color: #4C5752;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.bloques-portada > a.bloque-portada .etiqueta {
+  color: #647C72;
+}
+
+.bloques-portada > a.bloque-portada:focus-visible {
+  outline: 3px solid #8062A1;
+  outline-offset: 3px;
+}
   </style>
 </head>
 
@@ -674,40 +733,39 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
       </div>
     </div>
 
-    <div class="hero-visual">
-   <img src="dtd-inicio-v2.png" alt="Mascota de DTD Digital con lupa">
-    </div>
+<div class="hero-visual">
+  <img src="dtd-inicio-v3.png" alt="Mascota de DTD Digital con lupa">
+</div>
   </div>
 
-  <div class="bloques-portada">
-<a href="#roboteca" class="bloque-portada">
-      <div class="etiqueta">Recursos educativos</div>
-      <h3>Roboteca</h3>
-      <p>
-        Materiales de robótica educativa, programación y pensamiento computacional
-        para usar en el centro y en el aula.
-      </p>
- <span class="acceso-tarjeta">Explorar Roboteca →</span></a>
+<div class="bloques-portada">
+  <a href="#roboteca" class="bloque-portada">
+    <div class="etiqueta">Recursos educativos</div>
+    <h3>Roboteca</h3>
+    <p>
+      Materiales de robótica educativa, programación y pensamiento
+      computacional para usar en el centro y en el aula.
+    </p>
+  </a>
 
- <a href="#biblioteca" class="bloque-portada">
-      <div class="etiqueta">Formación docente</div>
-      <h3>Biblioteca Digital</h3>
-      <p>
-        Guías, tutoriales, e-books y materiales prácticos sobre Canva, inteligencia
-        artificial y otras herramientas educativas.
-      </p>
-<span class="acceso-tarjeta">Consultar biblioteca →</span>
- </a>
+  <a href="#biblioteca" class="bloque-portada">
+    <div class="etiqueta">Formación docente</div>
+    <h3>Biblioteca Digital</h3>
+    <p>
+      Guías, tutoriales, e-books y materiales prácticos sobre Canva,
+      inteligencia artificial y otras herramientas educativas.
+    </p>
+  </a>
 
-<a href="#compartir" class="bloque-portada">
-      <div class="etiqueta">Innovación educativa</div>
-      <h3>Compartir y crecer</h3>
-      <p>
-Materiales didácticos, actividades y propuestas de aula elaborados desde DTD para apoyar y enriquecer la práctica docente del centro.
-      </p>
-<span class="acceso-tarjeta">Ver materiales didácticos →</span>
-</a>
-  </div>
+  <a href="#compartir" class="bloque-portada">
+    <div class="etiqueta">Innovación educativa</div>
+    <h3>Compartir y crecer</h3>
+    <p>
+      Materiales didácticos, actividades y propuestas de aula elaborados
+      desde DTD para apoyar y enriquecer la práctica docente del centro.
+    </p>
+  </a>
+</div>
 </section>
    <section id="roboteca" class="oculto">
   <button class="volver" onclick="location.hash=''">
@@ -730,12 +788,12 @@ Materiales didácticos, actividades y propuestas de aula elaborados desde DTD pa
       </div>
     </div>
 
-    <div class="roboteca-mascota">
-      <img
-src="dtd-roboteca-v2.png"
-        alt="Mascota de la Roboteca del CEIP Pintor Agustín Riancho"
-      >
-    </div>
+<div class="roboteca-mascota">
+  <img
+    src="dtd-roboteca-v3.png"
+    alt="Mascota de la Roboteca del CEIP Pintor Agustín Riancho"
+  >
+</div>
   </div>
 
   <div class="roboteca-bloques">
@@ -765,15 +823,14 @@ src="dtd-roboteca-v2.png"
       <h2>Biblioteca Digital DTD</h2>
       <p>Guías y e-books prácticos para el profesorado.</p>
       <p>Próximamente: Canva e inteligencia artificial.</p>
-      <div class="biblioteca-mascota">
+<div class="biblioteca-mascota">
   <img
-src="dtd-biblioteca-v2.png"
+    src="dtd-biblioteca-v3.png"
     alt="Mascota de la Biblioteca Digital con un libro electrónico"
   >
 </div>
     </section>
-  <section id="compartir" class="oculto">
-
+<section id="compartir" class="oculto">
   <button class="volver" onclick="location.hash=''">
     ← Volver al inicio
   </button>
@@ -786,6 +843,13 @@ src="dtd-biblioteca-v2.png"
     para acompañar y apoyar al profesorado del centro.
   </p>
 
+  <div class="compartir-mascota">
+    <img
+      src="dtd-compartir-v1.png"
+      alt="Mascota de Compartir y crecer con materiales didácticos"
+    >
+  </div>
+
   <div class="secciones">
     <article class="tarjeta">
       <div class="etiqueta">Recursos didácticos</div>
@@ -796,7 +860,6 @@ src="dtd-biblioteca-v2.png"
       </p>
     </article>
   </div>
-
 </section>
   </main>
 
