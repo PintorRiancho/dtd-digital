@@ -1101,28 +1101,10 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
 </div>
   </div>
 
-  <div class="roboteca-bloques">
-    <article class="bloque-categoria" id="robotica40">
-      <div class="etiqueta">Categoría</div>
-      <h3>Robótica 4.0</h3>
-      <p>
-        Materiales del centro para iniciación a la programación,
-        pensamiento computacional y robótica educativa.
-      </p>
-    </article>
 
-    <article class="bloque-categoria" id="digicraft">
-      <div class="etiqueta">Categoría</div>
-      <h3>DigiCraft</h3>
-      <p>
-        Recursos para crear, experimentar y aprender con tecnología
-        de manera creativa y manipulativa.
-      </p>
-    </article>
-  </div>
      
 <!-- Catálogo Robótica 4.0 -->
-<section class="catalogo-dtd" aria-labelledby="titulo-catalogo-40">
+<section id="robotica40" class="catalogo-dtd" aria-labelledby="titulo-catalogo-40">
   <div class="catalogo-encabezado">
     <div class="etiqueta">Catálogo de materiales</div>
     <h3 id="titulo-catalogo-40">Explora Robótica 4.0</h3>
@@ -1230,7 +1212,28 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
     </div>
   </details>
 </section>
+<!-- Catálogo DigiCraft -->
+<section id="digicraft" class="catalogo-dtd oculto"
+         aria-labelledby="titulo-catalogo-digicraft">
 
+  <div class="catalogo-encabezado">
+    <div class="etiqueta">Catálogo de materiales</div>
+    <h3 id="titulo-catalogo-digicraft">Explora DigiCraft</h3>
+    <p>
+      Descubre los recursos de DigiCraft disponibles en el centro
+      y sus posibilidades educativas.
+    </p>
+  </div>
+
+  <div class="ficha-dtd" style="padding: 28px;">
+    <h4 style="color: #456D60;">Materiales DigiCraft</h4>
+    <p>
+      Incorporaremos aquí las fichas de Edison V2, Sphero Mini,
+      Makey Makey y los demás recursos de esta colección.
+    </p>
+  </div>
+
+</section>
 </section>
     <section id="biblioteca" class="oculto">
       <button class="volver" onclick="location.hash=''">
@@ -1296,6 +1299,12 @@ const paginas = ["inicio", "roboteca", "biblioteca", "compartir"];
           "oculto", id !== pagina
         );
       });
+      document.getElementById("robotica40").classList.toggle(
+  "oculto", destino === "digicraft"
+);
+document.getElementById("digicraft").classList.toggle(
+  "oculto", destino !== "digicraft"
+);
 
 if (destino === "robotica40" || destino === "digicraft") {
   document.getElementById(destino).scrollIntoView({
