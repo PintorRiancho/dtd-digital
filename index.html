@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DTD Digital | CEIP Pintor Agustín Riancho</title>
   <style>
-    :root {
---azul: #456D60;
---naranja: #8062A1;
---fondo: #F7F4EC;
---texto: #2E3934;
-    }
+:root {
+  --azul: #456D60;
+  --naranja: #8062A1;
+  --fondo: #F7F4EC;
+  --texto: #2E3934;
+  --texto-suave: #5F6F68;
+  --borde: #D9E1DA;
+  --blanco: #FFFFFF;
+  --lavanda-suave: #EEE8F7;
+}
 
     * { box-sizing: border-box; }
 
@@ -132,26 +136,27 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   align-items: center;
-  gap: 40px;
-  background: #ffffff;
-  border: 1px solid #dce3eb;
-  border-radius: 16px;
-  padding: 45px;
+  gap: 36px;
+  background: #FFFFFF;
+  border: 1px solid #D9E1DA;
+  border-radius: 22px;
+  padding: 40px;
   margin: 25px 0 35px;
   overflow: hidden;
+  box-shadow: 0 8px 24px rgba(46, 57, 52, 0.05);
 }
-
 .roboteca-texto h2 {
-  color: #103d70;
-  font-size: clamp(36px, 5vw, 54px);
+  color: #456D60;
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1.12;
   margin: 12px 0 20px;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 .roboteca-intro {
-  color: #42546a;
+  color: #4C5752;
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.6;
   max-width: 550px;
 }
 
@@ -163,13 +168,15 @@
 }
 
 .boton-secundario {
-  background: white;
-  color: #103d70;
-  border: 1px solid #103d70;
+  background: #FFFFFF;
+  color: #8062A1;
+  border: 2px solid #8062A1;
 }
 
 .boton-secundario:hover {
-  background: #edf3f9;
+  background: #F1EAF7;
+  color: #60467D;
+  border-color: #8062A1;
 }
 
 .roboteca-mascota {
@@ -194,21 +201,30 @@
 }
 
 .bloque-categoria {
-  background: white;
-  border: 1px solid #dce3eb;
-  border-top: 4px solid #ec8d25;
-  border-radius: 12px;
-  padding: 30px;
+  background: #FFFFFF;
+  border: 1px solid #D9E1DA;
+  border-top: 5px solid #456D60;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 20px rgba(46, 57, 52, 0.05);
+}
+
+.bloque-categoria:nth-child(2) {
+  border-top-color: #8062A1;
 }
 
 .bloque-categoria h3 {
-  color: #103d70;
-  font-size: 25px;
-  margin: 10px 0;
+  color: #456D60;
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 10px 0 14px;
 }
 
 .bloque-categoria p {
-  color: #42546a;
+  color: #4C5752;
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
 }
 
 @media (max-width: 700px) {
@@ -691,6 +707,38 @@ color: var(--texto);
 .bloques-portada > a.bloque-portada:focus-visible {
   outline: 3px solid #8062A1;
   outline-offset: 3px;
+}
+ /* Botones definitivos de Roboteca */
+#roboteca .roboteca-botones .boton {
+  background: #456D60;
+  color: #FFFFFF;
+  border: 2px solid #456D60;
+  text-decoration: none;
+}
+
+#roboteca .roboteca-botones .boton:hover,
+#roboteca .roboteca-botones .boton:focus-visible {
+  background: #35594D;
+  border-color: #35594D;
+  color: #FFFFFF;
+}
+
+#roboteca .roboteca-botones .boton-secundario {
+  background: #FFFFFF;
+  color: #8062A1;
+  border: 2px solid #8062A1;
+}
+
+#roboteca .roboteca-botones .boton-secundario:hover,
+#roboteca .roboteca-botones .boton-secundario:focus-visible {
+  background: #F1EAF7;
+  border-color: #8062A1;
+  color: #60467D;
+}
+
+/* Etiquetas de Roboteca */
+#roboteca .etiqueta {
+  color: #647C72;
 }
   </style>
 </head>
