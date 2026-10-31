@@ -420,13 +420,34 @@ line-height: 1.15;
   border-radius: 20px;
   padding: 26px;
   box-shadow: 0 8px 20px rgba(16, 61, 112, 0.06);
+  display: block;
+text-decoration: none;
+color: var(--texto);
+}
+.bloque-portada:hover,
+.bloque-portada:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(46, 57, 52, 0.12);
+  border-color: #8062A1;
+  outline: none;
+}
+/* Acentos de las tres tarjetas de Inicio */
+.bloques-portada > .bloque-portada:nth-child(1) {
+  border-top-color: #456D60;
 }
 
+.bloques-portada > .bloque-portada:nth-child(2) {
+  border-top-color: #8062A1;
+}
+
+.bloques-portada > .bloque-portada:nth-child(3) {
+  border-top-color: #A78359;
+}
 .bloque-portada .etiqueta {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #6d7c93;
+ color: #647C72;
   margin-bottom: 12px;
   font-weight: 700;
 }
@@ -542,32 +563,31 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
   </div>
 
   <div class="bloques-portada">
-    <article class="bloque-portada">
+<a href="#roboteca" class="bloque-portada">
       <div class="etiqueta">Recursos educativos</div>
       <h3>Roboteca</h3>
       <p>
         Materiales de robótica educativa, programación y pensamiento computacional
         para usar en el centro y en el aula.
       </p>
-    </article>
+  </a>
 
-    <article class="bloque-portada">
+ <a href="#biblioteca" class="bloque-portada">
       <div class="etiqueta">Formación docente</div>
       <h3>Biblioteca Digital</h3>
       <p>
         Guías, tutoriales, e-books y materiales prácticos sobre Canva, inteligencia
         artificial y otras herramientas educativas.
       </p>
-    </article>
+</a>
 
-    <article class="bloque-portada">
+<a href="#compartir" class="bloque-portada">
       <div class="etiqueta">Innovación educativa</div>
       <h3>Compartir y crecer</h3>
       <p>
-        Un entorno para recoger experiencias, propuestas y recursos que ayuden
-        a enriquecer la práctica docente del centro.
+Materiales didácticos, actividades y propuestas de aula elaborados desde DTD para apoyar y enriquecer la práctica docente del centro.
       </p>
-    </article>
+</a>
   </div>
 </section>
    <section id="roboteca" class="oculto">
@@ -633,6 +653,32 @@ src="dtd-biblioteca-v2.png"
   >
 </div>
     </section>
+  <section id="compartir" class="oculto">
+
+  <button class="volver" onclick="location.hash=''">
+    ← Volver al inicio
+  </button>
+
+  <h2>Compartir y crecer</h2>
+
+  <p>
+    Un espacio para consultar y compartir materiales didácticos,
+    actividades y propuestas de aula elaborados desde DTD
+    para acompañar y apoyar al profesorado del centro.
+  </p>
+
+  <div class="secciones">
+    <article class="tarjeta">
+      <div class="etiqueta">Recursos didácticos</div>
+      <h3>Materiales para el aula</h3>
+      <p>
+        Próximamente incorporaremos los materiales y las
+        propuestas didácticas elaborados desde DTD.
+      </p>
+    </article>
+  </div>
+
+</section>
   </main>
 
   <footer>
@@ -642,7 +688,7 @@ src="dtd-biblioteca-v2.png"
   <script>
     function navegar() {
       const destino = location.hash.substring(1);
-      const paginas = ["inicio", "roboteca", "biblioteca"];
+const paginas = ["inicio", "roboteca", "biblioteca", "compartir"];
   const pagina = ["robotica40", "digicraft"].includes(destino)
   ? "roboteca"
   : (paginas.includes(destino) ? destino : "inicio");
