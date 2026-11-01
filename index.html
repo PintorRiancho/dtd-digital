@@ -1511,6 +1511,334 @@ color: var(--texto);
   outline-offset: 3px;
 }
 
+/* ===== BIBLIOTECA DTD · DISEÑO DEFINITIVO ===== */
+
+/* Distribución general */
+
+#biblioteca .biblioteca-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  max-width: 1100px;
+  margin: 30px auto;
+  align-items: stretch;
+}
+
+/* Tarjeta: imagen completa arriba, información abajo */
+
+#biblioteca .biblio-card {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: none;
+  grid-template-areas: none;
+  min-height: 0;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dedbd2;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(46, 57, 52, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#biblioteca .biblio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(46, 57, 52, 0.10);
+}
+
+/* El logo ocupa toda la parte superior */
+
+#biblioteca .biblio-imagen {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  background: #ffffff;
+}
+
+#biblioteca .biblio-imagen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+}
+
+/* Panel inferior blanco */
+
+#biblioteca .biblio-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  gap: 12px;
+  padding: 24px 28px 28px;
+  background: #ffffff;
+  border-top: 1px solid #eeebe5;
+}
+
+#biblioteca .biblio-categoria {
+  color: #456D60;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.07em;
+}
+
+#biblioteca .biblio-info h4 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #2E3934;
+}
+
+#biblioteca .biblio-info p {
+  flex: initial;
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #4c5753;
+}
+
+/* Botón compacto para descubrir la ficha */
+
+#biblioteca .biblio-descubrir,
+#biblioteca .biblio-descubrir:hover,
+#biblioteca .biblio-descubrir:active,
+#biblioteca .biblio-descubrir:focus {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: auto;
+  padding: 11px 17px;
+  background: #456D60;
+  color: #ffffff;
+  border: 1px solid #456D60;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+#biblioteca .biblio-descubrir:hover {
+  background: #36574d;
+  border-color: #36574d;
+}
+
+#biblioteca .biblio-descubrir:focus-visible {
+  outline: 2px solid #8062A1;
+  outline-offset: 3px;
+}
+
+/* Contenedor de las fichas ampliadas */
+
+#biblioteca .biblioteca-fichas {
+  max-width: 1100px;
+  margin: 0 auto 32px;
+}
+
+#biblioteca .biblio-ficha[hidden] {
+  display: none !important;
+}
+
+#biblioteca .biblio-ficha {
+  display: block;
+  scroll-margin-top: 24px;
+  background: #ffffff;
+  border: 1px solid #d9ddd8;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(46, 57, 52, 0.07);
+}
+
+/* Cabecera de ficha */
+
+#biblioteca .biblio-ficha-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px 30px;
+  background: #F7F4EC;
+  border-bottom: 1px solid #e7e2d8;
+}
+
+#biblioteca .biblio-ficha-cabecera h3 {
+  margin: 8px 0 0;
+  font-size: 30px;
+  color: #456D60;
+}
+
+#biblioteca .biblio-cerrar,
+#biblioteca .biblio-cerrar:hover,
+#biblioteca .biblio-cerrar:active {
+  padding: 10px 15px;
+  background: #ffffff;
+  color: #456D60;
+  border: 1px solid #456D60;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#biblioteca .biblio-cerrar:hover {
+  background: #eef3f0;
+}
+
+#biblioteca .biblio-cerrar:focus-visible {
+  outline: 2px solid #8062A1;
+  outline-offset: 3px;
+}
+
+/* Contenido de ficha */
+
+#biblioteca .biblio-ficha-contenido {
+  padding: 28px 32px 32px;
+}
+
+#biblioteca .biblio-ficha-contenido h4 {
+  margin: 22px 0 12px;
+  font-size: 22px;
+  color: #2E3934;
+}
+
+#biblioteca .biblio-ficha-contenido h4:first-child {
+  margin-top: 0;
+}
+
+#biblioteca .biblio-ficha-contenido p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4c5753;
+}
+
+#biblioteca .biblio-usos {
+  padding-left: 22px;
+  margin: 16px 0 24px;
+}
+
+#biblioteca .biblio-usos li {
+  padding-left: 4px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #4c5753;
+}
+
+#biblioteca .biblio-usos strong {
+  color: #2E3934;
+}
+
+#biblioteca .biblio-aviso {
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: #F7F4EC;
+  border-radius: 12px;
+}
+
+/* Enlaces de cada ficha */
+
+#biblioteca .biblio-ficha-accesos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid #e7e9e5;
+}
+
+#biblioteca .biblio-ficha-accesos a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 17px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+#biblioteca .biblio-enlace-principal,
+#biblioteca .biblio-enlace-principal:link,
+#biblioteca .biblio-enlace-principal:visited,
+#biblioteca .biblio-enlace-principal:hover,
+#biblioteca .biblio-enlace-principal:active {
+  background: #456D60;
+  color: #ffffff;
+  border: 1px solid #456D60;
+}
+
+#biblioteca .biblio-enlace-principal:hover {
+  background: #36574d;
+}
+
+#biblioteca .biblio-enlace-recursos,
+#biblioteca .biblio-enlace-recursos:link,
+#biblioteca .biblio-enlace-recursos:visited,
+#biblioteca .biblio-enlace-recursos:hover,
+#biblioteca .biblio-enlace-recursos:active {
+  background: #ffffff;
+  color: #456D60;
+  border: 1px solid #456D60;
+}
+
+#biblioteca .biblio-enlace-recursos:hover {
+  background: #eef3f0;
+}
+
+#biblioteca .biblio-ficha-accesos a:focus-visible {
+  outline: 2px solid #8062A1;
+  outline-offset: 3px;
+}
+
+/* Adaptación a tablets y móviles */
+
+@media (max-width: 850px) {
+  #biblioteca .biblioteca-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+  }
+
+  #biblioteca .biblio-info {
+    padding: 22px 24px 26px;
+  }
+
+  #biblioteca .biblio-ficha-contenido {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  #biblioteca .biblio-info h4 {
+    font-size: 26px;
+  }
+
+  #biblioteca .biblio-ficha-cabecera {
+    padding: 20px;
+  }
+
+  #biblioteca .biblio-ficha-cabecera h3 {
+    font-size: 25px;
+  }
+
+  #biblioteca .biblio-ficha-accesos {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
   </style>
 </head>
 
@@ -5084,141 +5412,433 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
     </div>
 
 
+<!-- ===== TARJETAS DE LA BIBLIOTECA DIGITAL ===== -->
 
 <div class="biblioteca-grid">
 
   <!-- CANVA -->
   <article class="biblio-card">
-    <div class="biblio-logo">
-      <img src="biblioteca-canva.png" alt="Canva">
+    <div class="biblio-imagen">
+      <img src="biblioteca-canva.png" alt="Identificador visual de Canva" loading="lazy">
     </div>
-
-    <div class="biblio-chip">Diseño y creación visual</div>
-    <h4>Canva</h4>
-
-    <p>
-      Crea presentaciones, materiales imprimibles,
-      apoyos visuales, vídeos y recursos para
-      el aula y la comunicación con las familias.
-    </p>
-
-    <div class="biblio-links">
-      <a class="boton"
-         href="https://www.canva.com/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Abrir Canva
-      </a>
-
-      <a class="boton"
-         href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgBUEvuFYEO6Q7ncMYJIgEnIAWh_pfgYezjCC8B3uEzqMIQ?e=LdKvbd"
-         target="_blank"
-         rel="noopener noreferrer">
-        E-books y videotutoriales
-      </a>
+    <div class="biblio-info">
+      <span class="biblio-categoria">DISEÑO Y CREACIÓN VISUAL</span>
+      <h4>Canva</h4>
+      <p>
+        Diseña materiales visuales, presentaciones,
+        vídeos y recursos para el aula y las familias.
+      </p>
+      <button class="biblio-descubrir" type="button"
+              aria-controls="ficha-biblioteca-canva"
+              aria-expanded="false"
+              onclick="abrirFichaBiblioteca('canva')">
+        Descubrir Canva <span aria-hidden="true">↗</span>
+      </button>
     </div>
   </article>
 
   <!-- CHATGPT -->
   <article class="biblio-card">
-    <div class="biblio-logo">
-      <img src="biblioteca-chatgpt.png" alt="ChatGPT">
+    <div class="biblio-imagen">
+      <img src="biblioteca-chatgpt.png" alt="Identificador visual de ChatGPT" loading="lazy">
     </div>
-
-    <div class="biblio-chip">Inteligencia artificial</div>
-    <h4>ChatGPT</h4>
-
-    <p>
-      Explora cómo utilizar la inteligencia artificial
-      para preparar explicaciones, adaptar materiales,
-      generar alternativas didácticas y revisar
-      propuestas de enseñanza.
-    </p>
-
-    <div class="biblio-links">
-      <a class="boton"
-         href="https://chatgpt.com/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Abrir ChatGPT
-      </a>
-
-      <a class="boton"
-         href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgAp6SdaR_jjTZNqxBGz7cBmAbtcUUYtzQ5SN3GeLIh97Vg?e=mm5Hj0"
-         target="_blank"
-         rel="noopener noreferrer">
-        E-books y videotutoriales
-      </a>
+    <div class="biblio-info">
+      <span class="biblio-categoria">INTELIGENCIA ARTIFICIAL</span>
+      <h4>ChatGPT</h4>
+      <p>
+        Prepara, revisa y adapta contenidos docentes
+        mediante un asistente conversacional de IA.
+      </p>
+      <button class="biblio-descubrir" type="button"
+              aria-controls="ficha-biblioteca-chatgpt"
+              aria-expanded="false"
+              onclick="abrirFichaBiblioteca('chatgpt')">
+        Descubrir ChatGPT <span aria-hidden="true">↗</span>
+      </button>
     </div>
   </article>
 
   <!-- GEMINI -->
   <article class="biblio-card">
-    <div class="biblio-logo">
-      <img src="biblioteca-gemini.png" alt="Gemini">
+    <div class="biblio-imagen">
+      <img src="biblioteca-gemini.png" alt="Identificador visual de Gemini" loading="lazy">
     </div>
-
-    <div class="biblio-chip">Inteligencia artificial</div>
-    <h4>Gemini</h4>
-
-    <p>
-      Aprende a utilizar un asistente de inteligencia
-      artificial para organizar ideas, preparar
-      contenidos, explorar documentos y desarrollar
-      recursos de apoyo docente.
-    </p>
-
-    <div class="biblio-links">
-      <a class="boton"
-         href="https://gemini.google.com/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Abrir Gemini
-      </a>
-
-      <a class="boton"
-         href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgDDcsZp0ogQSJqg_gkveDz-AXXGXDsLNNI8ySjQpDdkTiI?e=pHiwnO"
-         target="_blank"
-         rel="noopener noreferrer">
-        E-books y videotutoriales
-      </a>
+    <div class="biblio-info">
+      <span class="biblio-categoria">INTELIGENCIA ARTIFICIAL</span>
+      <h4>Gemini</h4>
+      <p>
+        Explora información, organiza ideas y crea
+        apoyos docentes con la inteligencia artificial de Google.
+      </p>
+      <button class="biblio-descubrir" type="button"
+              aria-controls="ficha-biblioteca-gemini"
+              aria-expanded="false"
+              onclick="abrirFichaBiblioteca('gemini')">
+        Descubrir Gemini <span aria-hidden="true">↗</span>
+      </button>
     </div>
   </article>
 
   <!-- SCRATCH -->
   <article class="biblio-card">
-    <div class="biblio-logo">
-      <img src="biblioteca-scratch.png" alt="Scratch">
+    <div class="biblio-imagen">
+      <img src="biblioteca-scratch.png" alt="Identificador visual de Scratch" loading="lazy">
     </div>
-
-    <div class="biblio-chip">Programación creativa</div>
-    <h4>Scratch</h4>
-
-    <p>
-      Diseña historias interactivas, animaciones,
-      pequeños videojuegos y proyectos para
-      trabajar secuencias, condiciones y
-      resolución de problemas en Primaria.
-    </p>
-
-    <div class="biblio-links">
-      <a class="boton"
-         href="https://scratch.mit.edu/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Abrir Scratch
-      </a>
-
-      <a class="boton"
-         href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgCWlmpvUW-FQ5B49JjUl8klAQRkahJKY06WEuloLNcXKSY?e=OIDOJh"
-         target="_blank"
-         rel="noopener noreferrer">
-        E-books y videotutoriales
-      </a>
+    <div class="biblio-info">
+      <span class="biblio-categoria">PROGRAMACIÓN CREATIVA</span>
+      <h4>Scratch</h4>
+      <p>
+        Crea historias, animaciones y juegos mediante
+        programación por bloques.
+      </p>
+      <button class="biblio-descubrir" type="button"
+              aria-controls="ficha-biblioteca-scratch"
+              aria-expanded="false"
+              onclick="abrirFichaBiblioteca('scratch')">
+        Descubrir Scratch <span aria-hidden="true">↗</span>
+      </button>
     </div>
   </article>
 
 </div>
+
+<!-- ===== FICHAS AMPLIADAS ===== -->
+
+<div id="fichas-biblioteca" class="biblioteca-fichas">
+
+  <!-- FICHA CANVA -->
+  <section id="ficha-biblioteca-canva"
+           class="biblio-ficha"
+           aria-label="Ficha de Canva"
+           hidden>
+
+    <div class="biblio-ficha-cabecera">
+      <div>
+        <span class="biblio-categoria">DISEÑO Y CREACIÓN VISUAL</span>
+        <h3>Descubre Canva</h3>
+      </div>
+      <button class="biblio-cerrar" type="button"
+              onclick="cerrarFichaBiblioteca()">
+        Cerrar ficha ×
+      </button>
+    </div>
+
+    <div class="biblio-ficha-contenido">
+      <h4>¿Qué es Canva?</h4>
+      <p>
+        Canva es una plataforma de diseño visual que permite
+        elaborar presentaciones, documentos, carteles, vídeos
+        y otros contenidos a partir de plantillas personalizables.
+        Combina texto, imágenes, elementos gráficos y recursos
+        multimedia en un entorno de edición visual.
+      </p>
+
+      <h4>¿Para qué sirve en nuestro colegio?</h4>
+      <ul class="biblio-usos">
+        <li>
+          <strong>Crear apoyos visuales:</strong>
+          horarios de aula, paneles de rutinas, normas
+          ilustradas y secuencias de instrucciones.
+        </li>
+        <li>
+          <strong>Preparar materiales imprimibles:</strong>
+          tarjetas de vocabulario, dominós, tableros,
+          juegos de clasificación y carteles para rincones.
+        </li>
+        <li>
+          <strong>Diseñar explicaciones visuales:</strong>
+          presentaciones con imágenes, esquemas,
+          cronologías y ejemplos para Primaria.
+        </li>
+        <li>
+          <strong>Comunicar con las familias:</strong>
+          boletines, calendarios, invitaciones
+          e infografías informativas.
+        </li>
+        <li>
+          <strong>Crear vídeos educativos:</strong>
+          combinar imágenes, texto, audio narrado
+          y animaciones para explicar un contenido.
+        </li>
+        <li>
+          <strong>Documentar proyectos:</strong>
+          revistas de aula, álbumes de experiencias
+          y exposiciones digitales de trabajos.
+        </li>
+      </ul>
+
+      <div class="biblio-ficha-accesos">
+        <a class="biblio-enlace-principal"
+           href="https://www.canva.com/"
+           target="_blank" rel="noopener noreferrer">
+          Abrir Canva ↗
+        </a>
+        <a class="biblio-enlace-recursos"
+           href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgBUEvuFYEO6Q7ncMYJIgEnIAWh_pfgYezjCC8B3uEzqMIQ?e=LdKvbd"
+           target="_blank" rel="noopener noreferrer">
+          E-books y videotutoriales ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHA CHATGPT -->
+  <section id="ficha-biblioteca-chatgpt"
+           class="biblio-ficha"
+           aria-label="Ficha de ChatGPT"
+           hidden>
+
+    <div class="biblio-ficha-cabecera">
+      <div>
+        <span class="biblio-categoria">INTELIGENCIA ARTIFICIAL</span>
+        <h3>Descubre ChatGPT</h3>
+      </div>
+      <button class="biblio-cerrar" type="button"
+              onclick="cerrarFichaBiblioteca()">
+        Cerrar ficha ×
+      </button>
+    </div>
+
+    <div class="biblio-ficha-contenido">
+      <h4>¿Qué es ChatGPT?</h4>
+      <p>
+        ChatGPT es un asistente de inteligencia artificial
+        con el que podemos conversar utilizando instrucciones
+        escritas y, según las funciones disponibles,
+        trabajar con archivos e imágenes.
+        Puede ayudar a elaborar borradores, analizar ideas
+        y revisar contenidos, pero sus respuestas deben
+        contrastarse antes de utilizarlas.
+      </p>
+
+      <h4>¿Para qué sirve en nuestro colegio?</h4>
+      <ul class="biblio-usos">
+        <li>
+          <strong>Preparar diferentes explicaciones:</strong>
+          redactar alternativas sencillas para presentar
+          un mismo contenido en distintos cursos.
+        </li>
+        <li>
+          <strong>Adaptar materiales:</strong>
+          transformar un texto complejo en una versión
+          con vocabulario accesible y frases más breves.
+        </li>
+        <li>
+          <strong>Diseñar preguntas de comprensión:</strong>
+          elaborar borradores de preguntas literales,
+          inferenciales y de reflexión a partir de un texto.
+        </li>
+        <li>
+          <strong>Preparar instrumentos de evaluación:</strong>
+          proponer listas de cotejo y criterios observables
+          para una actividad concreta.
+        </li>
+        <li>
+          <strong>Revisar comunicaciones:</strong>
+          mejorar la claridad de circulares,
+          instrucciones y mensajes para las familias.
+        </li>
+        <li>
+          <strong>Explorar alternativas didácticas:</strong>
+          comparar maneras de trabajar un aprendizaje
+          con recursos digitales y sin ellos.
+        </li>
+      </ul>
+
+      <p class="biblio-aviso">
+        <strong>Uso responsable:</strong>
+        revisar la exactitud y adecuación de las respuestas.
+        No introducir información personal o sensible
+        del alumnado en servicios no autorizados por el centro.
+      </p>
+
+      <div class="biblio-ficha-accesos">
+        <a class="biblio-enlace-principal"
+           href="https://chatgpt.com/"
+           target="_blank" rel="noopener noreferrer">
+          Abrir ChatGPT ↗
+        </a>
+        <a class="biblio-enlace-recursos"
+           href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgAp6SdaR_jjTZNqxBGz7cBmAbtcUUYtzQ5SN3GeLIh97Vg?e=mm5Hj0"
+           target="_blank" rel="noopener noreferrer">
+          E-books y videotutoriales ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHA GEMINI -->
+  <section id="ficha-biblioteca-gemini"
+           class="biblio-ficha"
+           aria-label="Ficha de Gemini"
+           hidden>
+
+    <div class="biblio-ficha-cabecera">
+      <div>
+        <span class="biblio-categoria">INTELIGENCIA ARTIFICIAL</span>
+        <h3>Descubre Gemini</h3>
+      </div>
+      <button class="biblio-cerrar" type="button"
+              onclick="cerrarFichaBiblioteca()">
+        Cerrar ficha ×
+      </button>
+    </div>
+
+    <div class="biblio-ficha-contenido">
+      <h4>¿Qué es Gemini?</h4>
+      <p>
+        Gemini es el asistente de inteligencia artificial
+        de Google. Permite formular preguntas, generar
+        borradores, analizar contenidos y organizar ideas.
+        Algunas funciones e integraciones dependen
+        de la cuenta y del servicio disponible.
+      </p>
+
+      <h4>¿Para qué sirve en nuestro colegio?</h4>
+      <ul class="biblio-usos">
+        <li>
+          <strong>Organizar información:</strong>
+          convertir notas de planificación en esquemas,
+          cronologías o propuestas estructuradas.
+        </li>
+        <li>
+          <strong>Preparar secuencias de enseñanza:</strong>
+          elaborar un primer borrador de sesiones
+          con tareas, materiales y tiempos estimados.
+        </li>
+        <li>
+          <strong>Explorar documentos:</strong>
+          identificar ideas principales de materiales
+          proporcionados por el docente, revisando
+          siempre el resultado.
+        </li>
+        <li>
+          <strong>Crear bancos de preguntas:</strong>
+          generar ejercicios de repaso, ejemplos
+          y cuestiones para comprobar la comprensión.
+        </li>
+        <li>
+          <strong>Preparar materiales diferenciados:</strong>
+          proponer versiones de una explicación
+          con diferentes niveles de apoyo.
+        </li>
+        <li>
+          <strong>Desarrollar proyectos de aula:</strong>
+          organizar ideas, preguntas de investigación,
+          productos finales y posibles recursos.
+        </li>
+      </ul>
+
+      <p class="biblio-aviso">
+        <strong>Uso responsable:</strong>
+        comprobar los contenidos y las fuentes.
+        No incorporar datos personales del alumnado
+        sin autorización y garantías institucionales.
+      </p>
+
+      <div class="biblio-ficha-accesos">
+        <a class="biblio-enlace-principal"
+           href="https://gemini.google.com/"
+           target="_blank" rel="noopener noreferrer">
+          Abrir Gemini ↗
+        </a>
+        <a class="biblio-enlace-recursos"
+           href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgDDcsZp0ogQSJqg_gkveDz-AXXGXDsLNNI8ySjQpDdkTiI?e=pHiwnO"
+           target="_blank" rel="noopener noreferrer">
+          E-books y videotutoriales ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHA SCRATCH -->
+  <section id="ficha-biblioteca-scratch"
+           class="biblio-ficha"
+           aria-label="Ficha de Scratch"
+           hidden>
+
+    <div class="biblio-ficha-cabecera">
+      <div>
+        <span class="biblio-categoria">PROGRAMACIÓN CREATIVA</span>
+        <h3>Descubre Scratch</h3>
+      </div>
+      <button class="biblio-cerrar" type="button"
+              onclick="cerrarFichaBiblioteca()">
+        Cerrar ficha ×
+      </button>
+    </div>
+
+    <div class="biblio-ficha-contenido">
+      <h4>¿Qué es Scratch?</h4>
+      <p>
+        Scratch es un entorno gratuito de programación
+        por bloques con el que podemos crear historias,
+        animaciones y juegos interactivos.
+        Permite aprender conceptos de programación
+        combinando instrucciones visuales, sin tener
+        que escribir código tradicional.
+      </p>
+
+      <h4>¿Para qué sirve en nuestro colegio?</h4>
+      <ul class="biblio-usos">
+        <li>
+          <strong>Crear relatos interactivos:</strong>
+          programar personajes que dialogan
+          y cambian de escenario al recibir instrucciones.
+        </li>
+        <li>
+          <strong>Construir juegos de preguntas:</strong>
+          diseñar cuestionarios con respuestas,
+          puntos y mensajes de retroalimentación.
+        </li>
+        <li>
+          <strong>Representar procesos:</strong>
+          animar el ciclo del agua, el crecimiento
+          de una planta u otros contenidos del aula.
+        </li>
+        <li>
+          <strong>Practicar secuencias y condiciones:</strong>
+          programar movimientos y decisiones
+          utilizando bloques de control.
+        </li>
+        <li>
+          <strong>Crear juegos matemáticos:</strong>
+          trabajar operaciones, coordenadas,
+          puntuaciones y retos de lógica.
+        </li>
+        <li>
+          <strong>Depurar programas:</strong>
+          localizar errores en una secuencia
+          y comprobar si los cambios funcionan.
+        </li>
+      </ul>
+
+      <p class="biblio-aviso">
+        <strong>Orientación educativa:</strong>
+        especialmente útil en Primaria con actividades
+        graduadas y acompañamiento docente.
+        Revisar las normas de uso de cuentas
+        y publicación de proyectos del alumnado.
+      </p>
+
+      <div class="biblio-ficha-accesos">
+        <a class="biblio-enlace-principal"
+           href="https://scratch.mit.edu/"
+           target="_blank" rel="noopener noreferrer">
+          Abrir Scratch ↗
+        </a>
+        <a class="biblio-enlace-recursos"
+           href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgCWlmpvUW-FQ5B49JjUl8klAQRkahJKY06WEuloLNcXKSY?e=OIDOJh"
+           target="_blank" rel="noopener noreferrer">
+          E-books y videotutoriales ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FIN DEL CATÁLOGO DE TARJETAS Y FICHAS ===== -->
 
   </section>
 </section>
@@ -5292,5 +5912,82 @@ if (destino === "robotica40" || destino === "digicraft") {
     window.addEventListener("hashchange", navegar);
     navegar();
   </script>
+
+<script>
+/* ===== APERTURA DE FICHAS · BIBLIOTECA DTD ===== */
+
+function abrirFichaBiblioteca(herramienta) {
+  const biblioteca = document.getElementById('biblioteca');
+  if (!biblioteca) return;
+
+  const fichas = biblioteca.querySelectorAll('.biblio-ficha');
+  const botones = biblioteca.querySelectorAll('.biblio-descubrir');
+
+  fichas.forEach(function(ficha) {
+    ficha.hidden = true;
+  });
+
+  botones.forEach(function(boton) {
+    boton.setAttribute('aria-expanded', 'false');
+  });
+
+  const fichaSeleccionada = document.getElementById(
+    'ficha-biblioteca-' + herramienta
+  );
+
+  if (!fichaSeleccionada) return;
+
+  fichaSeleccionada.hidden = false;
+
+  const botonSeleccionado = biblioteca.querySelector(
+    '[aria-controls="ficha-biblioteca-' + herramienta + '"]'
+  );
+
+  if (botonSeleccionado) {
+    botonSeleccionado.setAttribute('aria-expanded', 'true');
+  }
+
+  fichaSeleccionada.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+function cerrarFichaBiblioteca() {
+  const biblioteca = document.getElementById('biblioteca');
+  if (!biblioteca) return;
+
+  const fichaAbierta = biblioteca.querySelector(
+    '.biblio-ficha:not([hidden])'
+  );
+
+  const botonOrigen = fichaAbierta
+    ? biblioteca.querySelector(
+        '[aria-controls="' + fichaAbierta.id + '"]'
+      )
+    : null;
+
+  biblioteca.querySelectorAll('.biblio-ficha').forEach(
+    function(ficha) {
+      ficha.hidden = true;
+    }
+  );
+
+  biblioteca.querySelectorAll('.biblio-descubrir').forEach(
+    function(boton) {
+      boton.setAttribute('aria-expanded', 'false');
+    }
+  );
+
+  if (botonOrigen) {
+    botonOrigen.focus({ preventScroll: true });
+    botonOrigen.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }
+}
+</script>
+
 </body>
 </html>
