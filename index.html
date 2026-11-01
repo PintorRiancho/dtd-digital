@@ -1256,7 +1256,14 @@ color: var(--texto);
     max-width: 280px;
   }
 }
+/* Botones de la portada de Biblioteca Digital */
 
+#biblioteca .biblioteca-botones {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
   </style>
 </head>
 
@@ -4805,12 +4812,12 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
         descubra, aprenda y aplique herramientas digitales con sentido pedagógico.
       </p>
 
-      <div class="biblioteca-pildoras">
-        <span>Canva</span>
-        <span>IA</span>
-        <span>Scratch</span>
-        <span>Recursos creativos</span>
-      </div>
+<div class="biblioteca-botones">
+  <a class="boton" href="#explora-biblioteca">Explorar herramientas</a>
+  <a class="boton boton-secundario" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">
+    Ir a Canva
+  </a>
+</div>
     </div>
 
     <div class="biblioteca-mascota">
@@ -4821,7 +4828,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
     </div>
   </div>
 
-  <section class="catalogo-dtd">
+<section id="explora-biblioteca" class="catalogo-dtd">
     <div class="catalogo-encabezado">
       <div class="etiqueta">Catálogo de herramientas</div>
       <h3>Explora la biblioteca</h3>
