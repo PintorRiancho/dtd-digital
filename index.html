@@ -1264,6 +1264,27 @@ color: var(--texto);
   flex-wrap: wrap;
   margin-top: 24px;
 }
+  /* AJUSTES FINALES DE LA PORTADA DE BIBLIOTECA */
+
+#biblioteca .biblioteca-hero {
+  background: #ffffff;
+}
+
+#biblioteca .biblioteca-botones .boton {
+  outline: none;
+  box-shadow: none;
+}
+
+#biblioteca .biblioteca-botones .boton:hover {
+  background: #456D60;
+  color: #ffffff;
+  border-color: #456D60;
+}
+
+#biblioteca .biblioteca-botones .boton:focus-visible {
+  outline: 2px solid #8062A1;
+  outline-offset: 3px;
+}
   </style>
 </head>
 
@@ -4814,9 +4835,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
 
 <div class="biblioteca-botones">
 <button class="boton" type="button" onclick="document.getElementById('explora-biblioteca').scrollIntoView({behavior:'smooth',block:'start'})">Explorar herramientas</button>
-  <a class="boton boton-secundario" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">
-    Ir a Canva
-  </a>
+ 
 </div>
     </div>
 
