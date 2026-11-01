@@ -1285,6 +1285,111 @@ color: var(--texto);
   outline: 2px solid #8062A1;
   outline-offset: 3px;
 }
+ 
+/* ===== TARJETAS BIBLIOTECA DIGITAL ===== */
+
+#biblioteca .biblioteca-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+#biblioteca .biblio-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #ddd8cc;
+  border-radius: 22px;
+  padding: 26px;
+}
+
+#biblioteca .biblio-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+#biblioteca .biblio-logo img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+#biblioteca .biblio-card h4 {
+  font-size: 28px;
+  color: #2e3934;
+}
+
+#biblioteca .biblio-card p {
+  flex: 1;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+#biblioteca .biblio-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+#biblioteca .biblio-pendiente {
+  color: #66756f;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* Botones verdes: estados normal, hover y pulsado */
+
+#biblioteca .biblio-links a.boton,
+#biblioteca .biblio-links a.boton:link,
+#biblioteca .biblio-links a.boton:visited,
+#biblioteca .biblio-links a.boton:hover,
+#biblioteca .biblio-links a.boton:active {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #456D60;
+  color: #ffffff;
+  border: 2px solid #456D60;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+#biblioteca .biblio-links a.boton:hover {
+  background: #36574d;
+  border-color: #36574d;
+}
+
+#biblioteca .biblio-links a.boton:focus {
+  outline: none;
+}
+
+#biblioteca .biblio-links a.boton:focus-visible {
+  outline: 2px solid #8062A1;
+  outline-offset: 3px;
+}
+
+/* Adaptación a pantallas pequeñas */
+
+@media (max-width: 1100px) {
+  #biblioteca .biblioteca-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  #biblioteca .biblioteca-grid {
+    grid-template-columns: 1fr;
+  }
+}
+   
   </style>
 </head>
 
@@ -4857,43 +4962,106 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
       </p>
     </div>
 
-    <div class="biblioteca-grid">
-      <article class="biblio-card">
-        <div class="biblio-chip">Diseño y creatividad</div>
-        <h4>Canva</h4>
-        <p>
-          Diseña presentaciones, infografías y materiales visuales para el aula
-          con ayuda de videotutoriales y un e-book práctico.
-        </p>
 
-        <div class="biblio-links">
-          <a class="boton" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">
-            Abrir herramienta
-          </a>
-          <a class="boton boton-secundario" href="#" target="_blank" rel="noopener noreferrer">
-            Abrir e-book
-          </a>
-        </div>
-      </article>
+<div class="biblioteca-grid">
 
-      <article class="biblio-card biblio-card--placeholder">
-        <div class="biblio-chip">Próximamente</div>
-        <h4>Inteligencia artificial</h4>
-        <p>
-          Un espacio para aprender a utilizar herramientas de IA de forma
-          práctica, ética y educativa.
-        </p>
-      </article>
-
-      <article class="biblio-card biblio-card--placeholder">
-        <div class="biblio-chip">Próximamente</div>
-        <h4>Scratch</h4>
-        <p>
-          Guías y materiales para iniciarse en la programación creativa
-          y llevarla al aula.
-        </p>
-      </article>
+  <!-- CANVA -->
+  <article class="biblio-card">
+    <div class="biblio-logo">
+      <img src="biblioteca-canva.png" alt="Canva">
     </div>
+    <div class="biblio-chip">Diseño y creación visual</div>
+    <h4>Canva</h4>
+    <p>
+      Crea presentaciones, materiales imprimibles,
+      apoyos visuales, vídeos y recursos para
+      el aula y la comunicación con las familias.
+    </p>
+    <div class="biblio-links">
+      <a class="boton" href="https://www.canva.com/"
+         target="_blank" rel="noopener noreferrer">
+        Abrir Canva
+      </a>
+      <span class="biblio-pendiente">
+        E-book del centro en elaboración
+      </span>
+    </div>
+  </article>
+
+  <!-- CHATGPT -->
+  <article class="biblio-card">
+    <div class="biblio-logo">
+      <img src="biblioteca-chatgpt.png" alt="ChatGPT">
+    </div>
+    <div class="biblio-chip">Inteligencia artificial</div>
+    <h4>ChatGPT</h4>
+    <p>
+      Explora cómo utilizar la inteligencia artificial
+      para preparar explicaciones, adaptar materiales,
+      generar alternativas didácticas y revisar
+      propuestas de enseñanza.
+    </p>
+    <div class="biblio-links">
+      <a class="boton" href="https://chatgpt.com/"
+         target="_blank" rel="noopener noreferrer">
+        Abrir ChatGPT
+      </a>
+      <span class="biblio-pendiente">
+        E-book del centro en elaboración
+      </span>
+    </div>
+  </article>
+
+  <!-- GEMINI -->
+  <article class="biblio-card">
+    <div class="biblio-logo">
+      <img src="biblioteca-gemini.png" alt="Gemini">
+    </div>
+    <div class="biblio-chip">Inteligencia artificial</div>
+    <h4>Gemini</h4>
+    <p>
+      Aprende a utilizar un asistente de inteligencia
+      artificial para organizar ideas, preparar
+      contenidos, explorar documentos y desarrollar
+      recursos de apoyo docente.
+    </p>
+    <div class="biblio-links">
+      <a class="boton" href="https://gemini.google.com/"
+         target="_blank" rel="noopener noreferrer">
+        Abrir Gemini
+      </a>
+      <span class="biblio-pendiente">
+        E-book del centro en elaboración
+      </span>
+    </div>
+  </article>
+
+  <!-- SCRATCH -->
+  <article class="biblio-card">
+    <div class="biblio-logo">
+      <img src="biblioteca-scratch.png" alt="Scratch">
+    </div>
+    <div class="biblio-chip">Programación creativa</div>
+    <h4>Scratch</h4>
+    <p>
+      Diseña historias interactivas, animaciones,
+      pequeños videojuegos y proyectos para
+      trabajar secuencias, condiciones y
+      resolución de problemas en Primaria.
+    </p>
+    <div class="biblio-links">
+      <a class="boton" href="https://scratch.mit.edu/"
+         target="_blank" rel="noopener noreferrer">
+        Abrir Scratch
+      </a>
+      <span class="biblio-pendiente">
+        E-book del centro en elaboración
+      </span>
+    </div>
+  </article>
+
+</div>
+
   </section>
 </section>
 <section id="compartir" class="oculto">
