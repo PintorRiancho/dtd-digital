@@ -101,7 +101,7 @@
       font-weight: bold;
     }
 
-    .boton:hover { background: #205a94; }
+    .boton:hover { background: #35594D; }
 
  .oculto { display: none !important; }
 
@@ -1158,6 +1158,73 @@ color: var(--texto);
 @media(max-width:1020px){#biblioteca .biblioteca-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#biblioteca .biblio-imagen{height:145px}}
 @media(max-width:650px){#biblioteca .biblioteca-hero{grid-template-columns:1fr;padding:23px;gap:12px}#biblioteca .biblioteca-mascota img{max-width:130px}#biblioteca .biblioteca-grid{grid-template-columns:1fr;gap:12px}#biblioteca .biblio-card{flex-direction:row;align-items:stretch}#biblioteca .biblio-imagen{width:118px;min-width:118px;height:auto;min-height:155px}#biblioteca .biblio-info{border-top:0;border-left:1px solid #EEECE6;padding:13px}#biblioteca .biblio-info h4{font-size:21px}#biblioteca .biblio-info p{font-size:13px}#biblioteca .biblio-ficha-cabecera{padding:16px}#biblioteca .biblio-ficha-contenido{padding:18px}#biblioteca .biblio-ficha-accesos{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){#biblioteca *{scroll-behavior:auto}}
+
+
+/* ===== COMPARTIR Y CRECER · DISEÑO EDITORIAL COMPACTO ===== */
+#compartir .compartir-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(160px, .5fr);
+  align-items: center;
+  gap: 16px 30px;
+  background: #fff;
+  border: 1px solid #D9E1DA;
+  border-radius: 20px;
+  padding: 25px 34px;
+  margin: 18px 0 25px;
+  min-height: 0;
+  box-shadow: 0 5px 18px rgba(46,57,52,.045);
+}
+#compartir .compartir-hero .etiqueta {font-size: 12px; font-weight: 700; color:#8062A1; letter-spacing:.07em}
+#compartir .compartir-hero h2 {font-size:clamp(30px,3.4vw,43px);line-height:1.12;color:#304C42;margin:7px 0 10px}
+#compartir .compartir-hero p {margin:0;max-width:590px;font-size:16px;line-height:1.55;color:#4C5752}
+#compartir .compartir-hero-visual {display:flex;align-items:center;justify-content:center}
+#compartir .compartir-hero-visual img {display:block;width:100%;max-width:165px;max-height:190px;object-fit:contain}
+#compartir .compartir-contenido {display:flex;flex-direction:column;gap:22px}
+#compartir .compartir-seccion-titulo {font-size:23px;line-height:1.3;color:#456D60;margin:0 0 -5px}
+#compartir .recurso-card {background:#fff;border:1px solid #D9E1DA;border-top:4px solid #8062A1;border-radius:15px;padding:18px 20px;box-shadow:0 4px 15px rgba(46,57,52,.045)}
+#compartir .recurso-card-grid {display:grid;grid-template-columns:210px minmax(0,1fr);gap:21px;align-items:center}
+#compartir .recurso-portada {background:#F7F4EC;min-height:170px;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center}
+#compartir .recurso-portada img {display:block;width:100%;height:165px;object-fit:contain}
+#compartir .recurso-kicker {font-size:11px;letter-spacing:.055em;color:#8062A1;font-weight:700;margin:0 0 7px;text-transform:uppercase}
+#compartir .recurso-card h3 {font-size:23px;line-height:1.2;color:#456D60;margin:0 0 6px}
+#compartir .recurso-lema {font-size:14px;color:#4C5752;font-weight:600;margin:0 0 10px}
+#compartir .recurso-meta {display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+#compartir .recurso-meta span {font-size:12px;line-height:1.4;background:#F1F4F0;color:#35594D;border-radius:999px;padding:4px 9px}
+#compartir .recurso-descripcion {font-size:14px;line-height:1.52;color:#4C5752;margin:0 0 9px}
+#compartir .recurso-autor {font-size:12px;color:#647C72;margin:0 0 12px}
+#compartir .recurso-enlace,#compartir .recurso-enlace:visited {display:inline-flex;align-items:center;justify-content:center;padding:9px 14px;border-radius:8px;background:#456D60;border:1px solid #456D60;color:#fff;text-decoration:none;font-size:13px;font-weight:700}
+#compartir .recurso-enlace:hover {background:#35594D;border-color:#35594D}
+#compartir .compartir-propuesta {display:flex;justify-content:space-between;align-items:center;gap:20px;background:#fff;border:1px solid #D9E1DA;border-left:4px solid #8062A1;border-radius:14px;padding:20px 24px}
+#compartir .compartir-propuesta .etiqueta {font-size:11px;font-weight:700;color:#8062A1}
+#compartir .compartir-propuesta h3 {font-size:21px;line-height:1.25;color:#456D60;margin:5px 0 5px}
+#compartir .compartir-propuesta p {font-size:14px;line-height:1.5;color:#4C5752;margin:0;max-width:620px}
+#compartir .compartir-propuesta small {display:block;font-size:12px;color:#647C72;margin-top:7px}
+#compartir .propuesta-enlace,#compartir .propuesta-enlace:visited {display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;white-space:nowrap;background:#8062A1;border:1px solid #8062A1;border-radius:9px;padding:11px 16px;color:#fff;text-decoration:none;font-size:14px;font-weight:700}
+#compartir .propuesta-enlace:hover {background:#60467D;border-color:#60467D}
+#compartir a:focus-visible {outline:3px solid #8062A1;outline-offset:3px}
+/* Evitar el borde azul heredado en el botón de Biblioteca Digital */
+#biblioteca .biblioteca-explorar,
+#biblioteca .biblioteca-explorar:hover,
+#biblioteca .biblioteca-explorar:active {border:2px solid #456D60;background:#456D60;color:#fff;box-shadow:none;appearance:none}
+#biblioteca .biblioteca-explorar:hover {border-color:#35594D;background:#35594D}
+#biblioteca .biblioteca-explorar:focus-visible {border-color:#456D60;outline:3px solid #8062A1;outline-offset:3px;box-shadow:none}
+@media (max-width:700px) {
+  #compartir .compartir-hero {grid-template-columns:minmax(0,1fr) 100px;padding:20px 18px;gap:12px;margin:16px 0 20px}
+  #compartir .compartir-hero-visual img {max-width:100px;max-height:130px}
+  #compartir .compartir-hero h2 {font-size:30px}
+  #compartir .compartir-hero p {font-size:14px}
+  #compartir .recurso-card-grid {grid-template-columns:1fr;gap:14px}
+  #compartir .recurso-portada {min-height:145px}
+  #compartir .recurso-portada img {height:155px}
+  #compartir .recurso-card {padding:16px}
+  #compartir .compartir-propuesta {flex-direction:column;align-items:flex-start;padding:18px}
+  #compartir .propuesta-enlace {white-space:normal}
+}
+@media (max-width:420px) {
+  #compartir .compartir-hero {grid-template-columns:1fr}
+  #compartir .compartir-hero-visual {justify-content:flex-start}
+  #compartir .compartir-hero-visual img {max-width:95px;max-height:110px}
+}
 
 </style>
 </head>
@@ -4992,127 +5059,54 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
 </section></div>
 </section></section>
 <section id="compartir" class="oculto">
-  <button class="volver" onclick="location.hash=''">
-    ← Volver al inicio
-  </button>
+  <button class="volver" onclick="location.hash=''">← Volver al inicio</button>
 
-  
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:center;gap:24px;background:#FFFFFF;border-radius:20px;padding:28px;margin-bottom:30px;">
-
-  <div>
-    <p style="color:#8062A1;font-weight:700;font-size:0.85rem;letter-spacing:1px;margin:0 0 10px;">
-      RECURSOS Y COLABORACIÓN DOCENTE
-    </p>
-
-    <h2 style="font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin:0 0 18px;color:#304C42;">
-      Compartir y crecer
-    </h2>
-
-    <p style="font-size:1.1rem;line-height:1.65;margin:0;">
-      Materiales, actividades y propuestas didácticas creadas
-      desde DTD para enriquecer la práctica educativa y
-      acompañar al profesorado del centro.
-    </p>
-  </div>
-
-  <div style="display:flex;justify-content:center;align-items:center;">
-    <img
-      src="dtd-compartir-v2.png"
-      alt="Mascota de Compartir y crecer"
-      style="display:block;width:100%;max-width:290px;height:auto;object-fit:contain;"
-      loading="lazy"
-    >
-  </div>
-
-</div>
-
-
-  
-<div class="secciones" style="display:grid;grid-template-columns:1fr;gap:20px;">
-
-  <!-- MATERIAL COMPARTIDO: ROBOT JONES -->
-<article class="tarjeta" style="padding:18px;max-width:850px;width:100%;box-sizing:border-box;margin:0 auto;">
-    <div class="etiqueta">Material didáctico · Inglés y robótica</div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;align-items:center;">
-
-      <div style="background:#F7F4EC;border-radius:16px;padding:16px;">
-        <img
-          src="compartir-robot-jones.png"
-          alt="Portada del material Robot Jones — Around the World"
-style="display:block;width:100%;height:auto;max-height:190px;object-fit:contain;"
-          loading="lazy"
-        >
-      </div>
-
-      <div>
-        <h3 style="margin:0 0 10px;">Robot Jones — Around the World</h3>
-
-        <p style="margin:0 0 14px;color:#456D60;font-weight:600;">
-          Explore the world through coding
-        </p>
-
-        <p style="margin:0 0 12px;">
-          <strong>Etapa:</strong> 5.º y 6.º de Educación Primaria<br>
-          <strong>Área:</strong> Inglés<br>
-          <strong>Recursos:</strong> Robótica educativa y Bee-Bot
-        </p>
-
-        <p style="margin:0 0 12px;">
-          Tres misiones para explorar diferentes lugares del mundo,
-          practicar inglés y desarrollar el pensamiento computacional
-          mediante retos de programación.
-        </p>
-
-        <p style="font-size:0.9rem;color:#666;margin:0 0 18px;">
-          DTD · CEIP Pintor Agustín Riancho
-        </p>
-
-        <a
-          href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgCX21gzoIbySqCN9ep-8qHSAe-VjiPV-EIPgMlf5ayj2es?e=PxdjE3"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display:inline-block;background:#456D60;color:white;text-decoration:none;padding:12px 20px;border-radius:9px;font-weight:600;"
-        >
-          Acceder al material ↗
-        </a>
-      </div>
-
+  <div class="compartir-hero">
+    <div>
+      <div class="etiqueta">RECURSOS Y COLABORACIÓN DOCENTE</div>
+      <h2>Compartir y crecer</h2>
+      <p>Materiales y propuestas creadas desde DTD para apoyar el trabajo del profesorado en el aula.</p>
     </div>
-  </article>
+    <div class="compartir-hero-visual">
+      <img src="dtd-compartir-v2.png" alt="Mascota de Compartir y crecer" loading="lazy">
+    </div>
+  </div>
 
-  <!-- FORMULARIO DE PROPUESTAS -->
-<article class="tarjeta" style="padding:20px 24px;background:#F7F4EC;border:1px solid #DCEAE1;width:100%;box-sizing:border-box;">
+  <div class="compartir-contenido">
+    <h3 class="compartir-seccion-titulo">Materiales compartidos</h3>
 
-    <div class="etiqueta">Participación del profesorado</div>
+    <!-- Una ficha por material publicado -->
+    <article class="recurso-card" aria-labelledby="recurso-robot-jones">
+      <div class="recurso-card-grid">
+        <div class="recurso-portada">
+          <img src="compartir-robot-jones.png" alt="Portada de Robot Jones — Around the World" loading="lazy">
+        </div>
+        <div>
+          <p class="recurso-kicker">Material didáctico · Inglés y robótica</p>
+          <h3 id="recurso-robot-jones">Robot Jones — Around the World</h3>
+          <p class="recurso-lema">Explore the world through coding</p>
+          <div class="recurso-meta">
+            <span>5.º y 6.º de Primaria</span>
+            <span>Inglés</span>
+            <span>Robótica educativa · Bee-Bot</span>
+          </div>
+          <p class="recurso-descripcion">Tres misiones para explorar distintos lugares del mundo, practicar inglés y desarrollar el pensamiento computacional mediante retos de programación.</p>
+          <p class="recurso-autor">DTD · CEIP Pintor Agustín Riancho</p>
+          <a class="recurso-enlace" href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgCX21gzoIbySqCN9ep-8qHSAe-VjiPV-EIPgMlf5ayj2es?e=PxdjE3" target="_blank" rel="noopener noreferrer">Acceder al material ↗</a>
+        </div>
+      </div>
+    </article>
 
-    <h3 style="margin:12px 0;">
-      ¿Necesitas algún material para tu aula?
-    </h3>
-
- <p style="margin:8px 0 14px;max-width:700px;font-size:0.95rem;line-height:1.5;">
-      ¿Tienes una idea o necesitas un recurso para trabajar con tu
-      alumnado? Cuéntanos qué te gustaría crear y desde DTD te
-      ayudaremos a darle forma.
-    </p>
-
-    <a
-      href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=jjRh99YRPEOb0ISzuHgbyniHo2ai9vtJlYfnjjSstsxUMkJCT1FSRFJPN0QxUkJLOUdEQlo1SU9TMy4u"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="display:inline-block;background:#8062A1;color:white;text-decoration:none;padding:12px 20px;border-radius:9px;font-weight:600;"
-    >
-      Proponer un material ↗
-    </a>
-
-    <p style="font-size:0.85rem;color:#666;margin:14px 0 0;">
-      Formulario dirigido al profesorado con cuenta de Educantabria
-    </p>
-
-  </article>
-
-</div>
-
+    <aside class="compartir-propuesta" aria-labelledby="titulo-propuesta-dtd">
+      <div>
+        <div class="etiqueta">PARTICIPACIÓN DEL PROFESORADO</div>
+        <h3 id="titulo-propuesta-dtd">¿Necesitas algún material para tu aula?</h3>
+        <p>Comparte tu idea o necesidad y desde DTD te ayudaremos a darle forma.</p>
+        <small>Formulario para profesorado con cuenta de Educantabria</small>
+      </div>
+      <a class="propuesta-enlace" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=jjRh99YRPEOb0ISzuHgbyniHo2ai9vtJlYfnjjSstsxUMkJCT1FSRFJPN0QxUkJLOUdEQlo1SU9TMy4u" target="_blank" rel="noopener noreferrer">Proponer un material ↗</a>
+    </aside>
+  </div>
 </section>
   </main>
 
