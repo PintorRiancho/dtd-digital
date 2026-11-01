@@ -1163,7 +1163,7 @@ color: var(--texto);
 /* ===== COMPARTIR Y CRECER · DISEÑO EDITORIAL COMPACTO ===== */
 #compartir .compartir-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(160px, .5fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr);
   align-items: center;
   gap: 16px 30px;
   background: #fff;
@@ -1178,13 +1178,13 @@ color: var(--texto);
 #compartir .compartir-hero h2 {font-size:clamp(30px,3.4vw,43px);line-height:1.12;color:#304C42;margin:7px 0 10px}
 #compartir .compartir-hero p {margin:0;max-width:590px;font-size:16px;line-height:1.55;color:#4C5752}
 #compartir .compartir-hero-visual {display:flex;align-items:center;justify-content:center}
-#compartir .compartir-hero-visual img {display:block;width:100%;max-width:165px;max-height:190px;object-fit:contain}
+#compartir .compartir-hero-visual img {display:block;width:100%;max-width:245px;max-height:270px;object-fit:contain}
 #compartir .compartir-contenido {display:flex;flex-direction:column;gap:22px}
 #compartir .compartir-seccion-titulo {font-size:23px;line-height:1.3;color:#456D60;margin:0 0 -5px}
 #compartir .recurso-card {background:#fff;border:1px solid #D9E1DA;border-top:4px solid #8062A1;border-radius:15px;padding:18px 20px;box-shadow:0 4px 15px rgba(46,57,52,.045)}
-#compartir .recurso-card-grid {display:grid;grid-template-columns:210px minmax(0,1fr);gap:21px;align-items:center}
-#compartir .recurso-portada {background:#F7F4EC;min-height:170px;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center}
-#compartir .recurso-portada img {display:block;width:100%;height:165px;object-fit:contain}
+#compartir .recurso-card-grid {display:grid;grid-template-columns:275px minmax(0,1fr);gap:24px;align-items:center}
+#compartir .recurso-portada {background:#F7F4EC;min-height:225px;border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center}
+#compartir .recurso-portada img {display:block;width:100%;height:215px;object-fit:contain}
 #compartir .recurso-kicker {font-size:11px;letter-spacing:.055em;color:#8062A1;font-weight:700;margin:0 0 7px;text-transform:uppercase}
 #compartir .recurso-card h3 {font-size:23px;line-height:1.2;color:#456D60;margin:0 0 6px}
 #compartir .recurso-lema {font-size:14px;color:#4C5752;font-weight:600;margin:0 0 10px}
@@ -1202,6 +1202,12 @@ color: var(--texto);
 #compartir .propuesta-enlace,#compartir .propuesta-enlace:visited {display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;white-space:nowrap;background:#8062A1;border:1px solid #8062A1;border-radius:9px;padding:11px 16px;color:#fff;text-decoration:none;font-size:14px;font-weight:700}
 #compartir .propuesta-enlace:hover {background:#60467D;border-color:#60467D}
 #compartir a:focus-visible {outline:3px solid #8062A1;outline-offset:3px}
+/* Acceso inmediato a la propuesta: scroll local sin cambiar el hash de navegación */
+#compartir .compartir-ir-propuesta {display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;padding:11px 17px;background:#8062A1;border:2px solid #8062A1;border-radius:9px;color:white;font:700 14px Arial,sans-serif;cursor:pointer;box-shadow:none}
+#compartir .compartir-ir-propuesta:hover {background:#60467D;border-color:#60467D}
+#compartir .compartir-ir-propuesta:focus-visible {outline:3px solid #456D60;outline-offset:3px}
+#compartir #proponer-material {scroll-margin-top:24px}
+@media(max-width:700px){#compartir .compartir-ir-propuesta{font-size:13px;padding:10px 13px}}
 /* Evitar el borde azul heredado en el botón de Biblioteca Digital */
 #biblioteca .biblioteca-explorar,
 #biblioteca .biblioteca-explorar:hover,
@@ -1210,12 +1216,12 @@ color: var(--texto);
 #biblioteca .biblioteca-explorar:focus-visible {border-color:#456D60;outline:3px solid #8062A1;outline-offset:3px;box-shadow:none}
 @media (max-width:700px) {
   #compartir .compartir-hero {grid-template-columns:minmax(0,1fr) 100px;padding:20px 18px;gap:12px;margin:16px 0 20px}
-  #compartir .compartir-hero-visual img {max-width:100px;max-height:130px}
+  #compartir .compartir-hero-visual img {max-width:155px;max-height:175px}
   #compartir .compartir-hero h2 {font-size:30px}
   #compartir .compartir-hero p {font-size:14px}
   #compartir .recurso-card-grid {grid-template-columns:1fr;gap:14px}
-  #compartir .recurso-portada {min-height:145px}
-  #compartir .recurso-portada img {height:155px}
+  #compartir .recurso-portada {min-height:180px}
+  #compartir .recurso-portada img {height:180px}
   #compartir .recurso-card {padding:16px}
   #compartir .compartir-propuesta {flex-direction:column;align-items:flex-start;padding:18px}
   #compartir .propuesta-enlace {white-space:normal}
@@ -1223,7 +1229,81 @@ color: var(--texto);
 @media (max-width:420px) {
   #compartir .compartir-hero {grid-template-columns:1fr}
   #compartir .compartir-hero-visual {justify-content:flex-start}
-  #compartir .compartir-hero-visual img {max-width:95px;max-height:110px}
+  #compartir .compartir-hero-visual img {max-width:150px;max-height:170px}
+}
+
+
+/* ===== COMPARTIR Y CRECER · CATÁLOGO ESCALABLE ===== */
+/* La cabecera conserva la escala visual de Roboteca y Biblioteca. */
+#compartir .compartir-hero {
+  grid-template-columns: minmax(0, 1.35fr) minmax(235px, .65fr);
+  padding: 31px 38px;
+  gap: 24px;
+}
+#compartir .compartir-hero-visual img {
+  max-width: 265px;
+  max-height: 280px;
+}
+/* Una o dos fichas por fila, según el ancho disponible.
+   Para añadir materiales, duplicar el article antes del formulario. */
+#compartir .compartir-contenido {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+#compartir .compartir-seccion-titulo,
+#compartir .compartir-propuesta {
+  grid-column: 1 / -1;
+}
+#compartir .recurso-card {
+  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+#compartir .recurso-card-grid {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+#compartir .recurso-portada {
+  min-height: 0;
+  height: 190px;
+  border-radius: 0;
+  padding: 15px;
+  background: #F7F4EC;
+}
+#compartir .recurso-portada img {
+  width: 100%;
+  height: 100%;
+  max-height: 160px;
+  object-fit: contain;
+}
+#compartir .recurso-card-grid > div:last-child {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 19px 22px 21px;
+}
+#compartir .recurso-card h3 {font-size: 22px;}
+#compartir .recurso-descripcion {font-size: 14px;}
+#compartir .recurso-autor {margin-top: auto; padding-top: 7px;}
+#compartir .recurso-enlace {margin-top: 3px;}
+@media (max-width: 750px) {
+  #compartir .compartir-contenido {grid-template-columns: 1fr;}
+  #compartir .compartir-hero {grid-template-columns: minmax(0,1fr) minmax(115px,.45fr); padding: 23px;}
+  #compartir .compartir-hero-visual img {max-width: 195px;max-height: 215px;}
+  #compartir .recurso-portada {height: 190px;}
+}
+@media (max-width: 420px) {
+  #compartir .compartir-hero {grid-template-columns: 1fr;}
+  #compartir .compartir-hero-visual {justify-content: flex-start;}
+  #compartir .compartir-hero-visual img {max-width: 150px;}
 }
 
 </style>
@@ -5066,6 +5146,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
       <div class="etiqueta">RECURSOS Y COLABORACIÓN DOCENTE</div>
       <h2>Compartir y crecer</h2>
       <p>Materiales y propuestas creadas desde DTD para apoyar el trabajo del profesorado en el aula.</p>
+      <button type="button" class="compartir-ir-propuesta" onclick="document.getElementById('proponer-material').scrollIntoView({behavior: 'smooth', block: 'start'})">Proponer un material <span aria-hidden="true">↓</span></button>
     </div>
     <div class="compartir-hero-visual">
       <img src="dtd-compartir-v2.png" alt="Mascota de Compartir y crecer" loading="lazy">
@@ -5097,7 +5178,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
       </div>
     </article>
 
-    <aside class="compartir-propuesta" aria-labelledby="titulo-propuesta-dtd">
+    <aside id="proponer-material" class="compartir-propuesta" aria-labelledby="titulo-propuesta-dtd">
       <div>
         <div class="etiqueta">PARTICIPACIÓN DEL PROFESORADO</div>
         <h3 id="titulo-propuesta-dtd">¿Necesitas algún material para tu aula?</h3>
