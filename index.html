@@ -1306,6 +1306,47 @@ color: var(--texto);
   #compartir .compartir-hero-visual img {max-width: 150px;}
 }
 
+
+/* ===== COMPARTIR Y CRECER · CABECERA A ESCALA DE ROBOTECA =====
+   Referencia: .roboteca-hero (1.5fr 1fr, gap 36px, padding 40px)
+   y .roboteca-mascota img (max-width 260px). */
+#compartir .compartir-hero {
+  grid-template-columns: 1.5fr 1fr;
+  gap: 36px;
+  padding: 40px;
+  border-radius: 22px;
+  margin: 25px 0 35px;
+}
+#compartir .compartir-hero h2 {
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1.12;
+}
+#compartir .compartir-hero p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+#compartir .compartir-hero-visual img {
+  width: 100%;
+  max-width: 260px;
+  max-height: none;
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 700px) {
+  #compartir .compartir-hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 25px;
+  }
+  #compartir .compartir-hero h2 {font-size: 36px;}
+  #compartir .compartir-hero p {font-size: 16px;}
+  #compartir .compartir-hero-visual {justify-content: center;}
+  #compartir .compartir-hero-visual img {
+    max-width: 180px;
+    max-height: none;
+  }
+}
+
 </style>
 </head>
 
@@ -5174,6 +5215,28 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
           <p class="recurso-descripcion">Tres misiones para explorar distintos lugares del mundo, practicar inglés y desarrollar el pensamiento computacional mediante retos de programación.</p>
           <p class="recurso-autor">DTD · CEIP Pintor Agustín Riancho</p>
           <a class="recurso-enlace" href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgCX21gzoIbySqCN9ep-8qHSAe-VjiPV-EIPgMlf5ayj2es?e=PxdjE3" target="_blank" rel="noopener noreferrer">Acceder al material ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- MATERIAL COMPARTIDO: CITY CODING STATIONS -->
+    <article class="recurso-card" aria-labelledby="recurso-city-coding">
+      <div class="recurso-card-grid">
+        <div class="recurso-portada">
+          <img src="compartir-citycodestations.png" alt="Portada de City Coding Stations, ciudad de estilo Minecraft" loading="lazy">
+        </div>
+        <div>
+          <p class="recurso-kicker">Material didáctico · Inglés y pensamiento computacional</p>
+          <h3 id="recurso-city-coding">City Coding Stations</h3>
+          <p class="recurso-lema">La ciudad y las direcciones</p>
+          <div class="recurso-meta">
+            <span>5.º y 6.º de Primaria</span>
+            <span>Inglés</span>
+            <span>La ciudad y las direcciones</span>
+          </div>
+          <p class="recurso-descripcion">Propuesta ambientada en una ciudad de estética Minecraft para trabajar vocabulario de lugares de la ciudad, orientaciones e indicaciones de dirección mediante retos de programación.</p>
+          <p class="recurso-autor">DTD · CEIP Pintor Agustín Riancho</p>
+          <a class="recurso-enlace" href="https://educantabria-my.sharepoint.com/:f:/g/personal/ceip_pintor_agustin_riancho_educantabria_es/IgB8US7GjmQDRoMXfhY5BKncAYEq60GRZttT1_6QbO6WoEI?e=OcN8Ze" target="_blank" rel="noopener noreferrer">Acceder al material ↗</a>
         </div>
       </div>
     </article>
