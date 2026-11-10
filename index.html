@@ -1361,6 +1361,17 @@ color: var(--texto);
     line-height: 1.3;
   }
 }
+
+/* ROBOTECA: cierre accesible al pie de las fichas */
+#roboteca .cerrar-ficha-roboteca {
+  display:inline-flex; align-items:center; justify-content:center;
+  margin:24px 0 0; padding:11px 17px;
+  border:2px solid #456D60; border-radius:9px;
+  background:#fff; color:#456D60; font:700 14px Arial,sans-serif;
+  cursor:pointer;
+}
+#roboteca .cerrar-ficha-roboteca:hover {background:#EEF3F0}
+#roboteca .cerrar-ficha-roboteca:focus-visible {outline:3px solid #8062A1;outline-offset:3px}
 </style>
 </head>
 
@@ -5383,5 +5394,40 @@ function cerrarFichaBiblioteca() {
 }
 </script>
 
+<script>
+
+/* ROBOTECA: una ficha abierta por catálogo y cierre desde el final */
+(function prepararCierreFichasRoboteca() {
+  const roboteca = document.getElementById('roboteca');
+  if (!roboteca) return;
+  const movimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+
+  ['robotica40', 'digicraft'].forEach(function(catalogoId) {
+    const catalogo = document.getElementById(catalogoId);
+    if (!catalogo) return;
+    const fichas = Array.from(catalogo.querySelectorAll('details.ficha-dtd'));
+    fichas.forEach(function(ficha) {
+      ficha.addEventListener('toggle', function() {
+        if (!ficha.open) return;
+        fichas.forEach(function(otra) { if (otra !== ficha) otra.open = false; });
+      });
+      const contenido = ficha.querySelector(':scope > .ficha-contenido');
+      const encabezado = ficha.querySelector(':scope > summary');
+      if (!contenido || !encabezado || contenido.querySelector('.cerrar-ficha-roboteca')) return;
+      const boton = document.createElement('button');
+      boton.type = 'button';
+      boton.className = 'cerrar-ficha-roboteca';
+      boton.textContent = 'Cerrar ficha ↑';
+      boton.setAttribute('aria-label', 'Cerrar ficha de ' + (encabezado.querySelector('h4')?.textContent.trim() || 'material'));
+      boton.addEventListener('click', function() {
+        ficha.open = false;
+        encabezado.scrollIntoView({behavior:movimiento,block:'start'});
+        encabezado.focus({preventScroll:true});
+      });
+      contenido.appendChild(boton);
+    });
+  });
+})();
+</script>
 </body>
 </html>
