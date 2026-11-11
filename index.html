@@ -1394,6 +1394,27 @@ color: var(--texto);
 @media(max-width:650px){#inicio .novedades-dtd{padding:22px 19px}#inicio .novedades-cabecera{grid-template-columns:minmax(0,1fr) 100px;gap:10px}#inicio .novedades-mascota{min-height:95px}#inicio .novedades-mascota img{max-width:100px}#inicio .novedades-cabecera p{font-size:14px}#inicio .novedades-lista{grid-template-columns:1fr}#inicio .novedad-tarjeta:first-child{grid-column:auto}#inicio .novedad-tarjeta{padding:17px}#inicio .novedad-tarjeta h3{font-size:19px}}
 @media(max-width:390px){#inicio .novedades-cabecera{grid-template-columns:1fr}#inicio .novedades-mascota{justify-content:flex-start}#inicio .novedades-mascota img{max-width:105px}}
 
+
+/* Botón único de acceso a novedades en la portada */
+#inicio .boton-ir-novedades{font:700 15px Arial,sans-serif;cursor:pointer;border-radius:5px}
+#inicio .boton-ir-novedades:focus-visible{outline:3px solid #8062A1;outline-offset:3px}
+#novedades-dtd{scroll-margin-top:24px}
+
+/* ===== BUSCADOR Y FILTROS · BIBLIOTECA DIGITAL ===== */
+#biblioteca .biblio-filtros{margin:22px 0 8px;padding:21px 24px;background:#fff;border:1px solid #D9E1DA;border-radius:16px;box-shadow:0 4px 15px rgba(46,57,52,.045)}
+#biblioteca .biblio-filtros-titulo{display:block;color:#456D60;font-size:20px;line-height:1.3;font-weight:700;margin:0 0 6px}
+#biblioteca .biblio-filtros-ayuda{color:#4C5752;font-size:14px;margin:0 0 14px}
+#biblioteca .biblio-buscar{display:block;width:100%;max-width:560px;padding:12px 15px;background:#fff;border:1px solid #BACCC1;border-radius:10px;color:#2E3934;font:15px Arial,sans-serif}
+#biblioteca .biblio-buscar:focus-visible,#biblioteca .biblio-filtro-btn:focus-visible,#biblioteca .biblio-limpiar:focus-visible{outline:3px solid #8062A1;outline-offset:3px}
+#biblioteca .biblio-filtro-opciones{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0 12px}
+#biblioteca .biblio-filtro-btn{background:#fff;color:#456D60;border:1px solid #BACCC1;border-radius:999px;padding:8px 13px;font:700 13px Arial,sans-serif;cursor:pointer}
+#biblioteca .biblio-filtro-btn:hover{background:#F1F4F0}
+#biblioteca .biblio-filtro-btn[aria-pressed="true"]{background:#456D60;color:#fff;border-color:#456D60}
+#biblioteca .biblio-filtro-pie{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;color:#647C72;font-size:13px}
+#biblioteca .biblio-limpiar{border:0;background:transparent;color:#60467D;text-decoration:underline;text-underline-offset:3px;font:700 13px Arial,sans-serif;cursor:pointer}
+#biblioteca .biblio-sin-resultados{margin:14px 0 26px;padding:18px;border:1px dashed #BACCC1;border-radius:12px;background:#fff;color:#4C5752}
+#biblioteca .biblio-card[hidden]{display:none!important}
+@media(max-width:650px){#biblioteca .biblio-filtros{padding:17px}#biblioteca .biblio-filtro-btn{font-size:12px;padding:8px 11px}}
 </style>
 </head>
 
@@ -1431,8 +1452,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
       </p>
 
       <div class="hero-botones">
-        <a class="boton" href="#roboteca">Explorar la Roboteca</a>
-        <a class="boton boton-secundario" href="#biblioteca">Entrar en la Biblioteca</a>
+        <button class="boton boton-ir-novedades" type="button" onclick="document.getElementById('novedades-dtd').scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'})">Descubre las novedades ↓</button>
       </div>
     </div>
 
@@ -1471,7 +1491,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
 </div>
 
 <!-- Inicio: hasta tres novedades visibles; sustituir la más antigua al publicar otra. -->
-<section class="novedades-dtd" aria-labelledby="titulo-novedades-dtd">
+<section id="novedades-dtd" class="novedades-dtd" aria-labelledby="titulo-novedades-dtd">
   <div class="novedades-cabecera">
     <div>
       <span class="novedades-etiqueta">Un espacio que sigue creciendo</span>
@@ -4969,82 +4989,98 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
 </div><div class="biblioteca-mascota"><img src="dtd-biblioteca-v4.png" alt="Mascota de la Biblioteca Digital con una tablet"></div></div>
 <section id="explora-biblioteca" class="catalogo-dtd" aria-labelledby="titulo-explora-biblioteca">
 <div class="catalogo-encabezado"><div class="etiqueta">Catálogo docente</div><h3 id="titulo-explora-biblioteca">Explora las herramientas</h3><p>Selecciona una herramienta para consultar sus posibilidades educativas y acceder a los recursos del colegio.</p></div>
-<div class="biblioteca-grid"><article class="biblio-card" id="tarjeta-canva">
+<div class="biblio-filtros" id="filtro-biblioteca" role="search" aria-label="Buscar herramientas de Biblioteca Digital">
+  <label class="biblio-filtros-titulo" for="biblio-busqueda">Encuentra tu herramienta</label>
+  <p class="biblio-filtros-ayuda">Escribe su nombre o qué quieres hacer, o filtra por finalidad.</p>
+  <input id="biblio-busqueda" class="biblio-buscar" type="search" placeholder="Ej. Canva, audiocuentos, croma, libros..." autocomplete="off">
+  <div class="biblio-filtro-opciones" role="group" aria-label="Filtrar por finalidad">
+    <button type="button" class="biblio-filtro-btn" data-filtro="todas" aria-pressed="true">Todas</button>
+    <button type="button" class="biblio-filtro-btn" data-filtro="diseno" aria-pressed="false">Diseño</button>
+    <button type="button" class="biblio-filtro-btn" data-filtro="publicacion" aria-pressed="false">Publicación y documentos</button>
+    <button type="button" class="biblio-filtro-btn" data-filtro="ia" aria-pressed="false">Inteligencia artificial</button>
+    <button type="button" class="biblio-filtro-btn" data-filtro="video" aria-pressed="false">Vídeo</button>
+    <button type="button" class="biblio-filtro-btn" data-filtro="audio" aria-pressed="false">Audio</button>
+    <button type="button" class="biblio-filtro-btn" data-filtro="programacion" aria-pressed="false">Programación</button>
+  </div>
+  <div class="biblio-filtro-pie"><span id="biblio-contador" role="status" aria-live="polite">16 herramientas disponibles</span><button type="button" class="biblio-limpiar" id="biblio-limpiar" hidden>Limpiar búsqueda y filtros</button></div>
+</div>
+<p class="biblio-sin-resultados" id="biblio-sin-resultados" hidden>No hay herramientas que coincidan. Prueba con otra palabra o selecciona «Todas».</p>
+<div class="biblioteca-grid"><article class="biblio-card" id="tarjeta-canva" data-finalidades="diseno" data-busqueda="carteles infografias fichas diapositivas presentaciones plantillas">
 <div class="biblio-imagen"><img src="biblioteca-canva.png" alt="Imagen de Canva" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">DISEÑO VISUAL</span><h4>Canva</h4><p>Crea materiales, presentaciones y recursos visuales para el aula.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-canva" aria-expanded="false" onclick="abrirFichaBiblioteca('canva')">Descubrir Canva <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-chatgpt">
+<article class="biblio-card" id="tarjeta-chatgpt" data-finalidades="ia" data-busqueda="ia textos planificacion actividades inteligencia artificial">
 <div class="biblio-imagen"><img src="biblioteca-chatgpt.png" alt="Imagen de ChatGPT" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">INTELIGENCIA ARTIFICIAL</span><h4>ChatGPT</h4><p>Prepara, revisa y adapta recursos docentes con criterio pedagógico.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-chatgpt" aria-expanded="false" onclick="abrirFichaBiblioteca('chatgpt')">Descubrir ChatGPT <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-gemini">
+<article class="biblio-card" id="tarjeta-gemini" data-finalidades="ia" data-busqueda="ia textos preguntas inteligencia artificial">
 <div class="biblio-imagen"><img src="biblioteca-gemini.png" alt="Imagen de Gemini" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">INTELIGENCIA ARTIFICIAL</span><h4>Gemini</h4><p>Organiza ideas, planifica actividades y contrasta propuestas educativas.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-gemini" aria-expanded="false" onclick="abrirFichaBiblioteca('gemini')">Descubrir Gemini <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-scratch">
+<article class="biblio-card" id="tarjeta-scratch" data-finalidades="programacion" data-busqueda="programar codigo pensamiento computacional animaciones juegos">
 <div class="biblio-imagen"><img src="biblioteca-scratch.png" alt="Imagen de Scratch" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">PROGRAMACIÓN</span><h4>Scratch</h4><p>Diseña historias, animaciones y juegos mediante bloques de programación.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-scratch" aria-expanded="false" onclick="abrirFichaBiblioteca('scratch')">Descubrir Scratch <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-calameo">
+<article class="biblio-card" id="tarjeta-calameo" data-finalidades="publicacion" data-busqueda="ebooks libros revistas publicaciones digital">
 <div class="biblio-imagen"><img src="biblioteca-calameo.png" alt="Icono de Calaméo" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">PUBLICACIONES DIGITALES</span><h4>Calaméo</h4><p>Publica revistas, libros y proyectos escolares en formato digital.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-calameo" aria-expanded="false" onclick="abrirFichaBiblioteca('calameo')">Descubrir Calaméo <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-geniusscan">
+<article class="biblio-card" id="tarjeta-geniusscan" data-finalidades="publicacion" data-busqueda="escaner escanear fotografiar digitalizar pdf dibujos">
 <div class="biblio-imagen"><img src="biblioteca-geniusscan.png" alt="Icono de Genius Scan" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">DIGITALIZACIÓN</span><h4>Genius Scan</h4><p>Escanea fichas, dibujos y documentos y guárdalos en PDF.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-geniusscan" aria-expanded="false" onclick="abrirFichaBiblioteca('geniusscan')">Descubrir Genius Scan <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-scribus">
+<article class="biblio-card" id="tarjeta-scribus" data-finalidades="diseno publicacion" data-busqueda="periodico maquetar folleto imprenta revista">
 <div class="biblio-imagen"><img src="biblioteca-scribus.png" alt="Icono de Scribus" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">MAQUETACIÓN EDITORIAL</span><h4>Scribus</h4><p>Diseña periódicos, revistas y catálogos escolares para imprimir.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-scribus" aria-expanded="false" onclick="abrirFichaBiblioteca('scribus')">Descubrir Scribus <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-gemininotebook">
+<article class="biblio-card" id="tarjeta-gemininotebook" data-finalidades="ia" data-busqueda="notebooklm documentos fuentes resumen ia">
 <div class="biblio-imagen"><img src="biblioteca-gemininotebook.png" alt="Icono de Gemini Notebook" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">INTELIGENCIA ARTIFICIAL</span><h4>Gemini Notebook</h4><p>Organiza fuentes y genera guías o resúmenes a partir de documentos.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-gemininotebook" aria-expanded="false" onclick="abrirFichaBiblioteca('gemininotebook')">Descubrir Gemini Notebook <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-kinemaster">
+<article class="biblio-card" id="tarjeta-kinemaster" data-finalidades="video audio" data-busqueda="stop motion video editar montaje audiocuentos">
 <div class="biblio-imagen"><img src="biblioteca-kinemaster.png" alt="Icono de KineMaster" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">EDICIÓN AUDIOVISUAL</span><h4>KineMaster</h4><p>Monta audiocuentos, vídeos y secuencias de stop motion.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-kinemaster" aria-expanded="false" onclick="abrirFichaBiblioteca('kinemaster')">Descubrir KineMaster <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-capcut">
+<article class="biblio-card" id="tarjeta-capcut" data-finalidades="video audio" data-busqueda="video editar montaje subtitulos audiocuentos">
 <div class="biblio-imagen"><img src="biblioteca-capcut.png" alt="Icono de CapCut" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">EDICIÓN AUDIOVISUAL</span><h4>CapCut</h4><p>Edita audiocuentos, entrevistas y vídeos de proyectos escolares.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-capcut" aria-expanded="false" onclick="abrirFichaBiblioteca('capcut')">Descubrir CapCut <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-suno">
+<article class="biblio-card" id="tarjeta-suno" data-finalidades="ia audio" data-busqueda="musica canciones audio composicion ia">
 <div class="biblio-imagen"><img src="biblioteca-suno.png" alt="Icono de Suno" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">CREACIÓN MUSICAL CON IA</span><h4>Suno</h4><p>Crea canciones para introducir contenidos y actividades de clase.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-suno" aria-expanded="false" onclick="abrirFichaBiblioteca('suno')">Descubrir Suno <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-vidnoz">
+<article class="biblio-card" id="tarjeta-vidnoz" data-finalidades="ia video" data-busqueda="avatar fotos animar video voz ia">
 <div class="biblio-imagen"><img src="biblioteca-vidnoz.png" alt="Icono de Vidnoz" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">VÍDEO CON IA</span><h4>Vidnoz</h4><p>Anima imágenes con narración para explicar contenidos.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-vidnoz" aria-expanded="false" onclick="abrirFichaBiblioteca('vidnoz')">Descubrir Vidnoz <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-vsdc">
+<article class="biblio-card" id="tarjeta-vsdc" data-finalidades="video" data-busqueda="croma chroma key fondo verde video">
 <div class="biblio-imagen"><img src="biblioteca-vsdc.png" alt="Icono de VSDC" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">EDICIÓN Y CROMA</span><h4>VSDC</h4><p>Sustituye fondos verdes y edita vídeos con efecto croma.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-vsdc" aria-expanded="false" onclick="abrirFichaBiblioteca('vsdc')">Descubrir VSDC <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-emaze">
+<article class="biblio-card" id="tarjeta-emaze" data-finalidades="diseno" data-busqueda="galeria virtual 3d presentaciones exposicion">
 <div class="biblio-imagen"><img src="biblioteca-emaze.png" alt="Icono de emaze" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">PRESENTACIONES Y GALERÍAS</span><h4>emaze</h4><p>Crea presentaciones y galerías virtuales visitables mediante enlace.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-emaze" aria-expanded="false" onclick="abrirFichaBiblioteca('emaze')">Descubrir emaze <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-exelearning">
+<article class="biblio-card" id="tarjeta-exelearning" data-finalidades="publicacion programacion" data-busqueda="webquest contenido interactivo cuestionarios actividades">
 <div class="biblio-imagen"><img src="biblioteca-exelearning.png" alt="Icono de eXeLearning" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">CONTENIDOS INTERACTIVOS</span><h4>eXeLearning</h4><p>Diseña WebQuests, secuencias y recursos educativos digitales.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-exelearning" aria-expanded="false" onclick="abrirFichaBiblioteca('exelearning')">Descubrir eXeLearning <span aria-hidden="true">↗</span></button></div>
 </article>
-<article class="biblio-card" id="tarjeta-claude">
+<article class="biblio-card" id="tarjeta-claude" data-finalidades="ia" data-busqueda="ia textos redactar inteligencia artificial documentos">
 <div class="biblio-imagen"><img src="biblioteca-claude.png" alt="Icono de Claude" loading="lazy"></div>
 <div class="biblio-info"><span class="biblio-categoria">INTELIGENCIA ARTIFICIAL</span><h4>Claude</h4><p>Redacta, revisa y adapta propuestas docentes con ayuda de IA.</p>
 <button type="button" class="biblio-descubrir" aria-controls="ficha-biblioteca-claude" aria-expanded="false" onclick="abrirFichaBiblioteca('claude')">Descubrir Claude <span aria-hidden="true">↗</span></button></div>
@@ -5687,6 +5723,52 @@ function cerrarFichaBiblioteca() {
       contenido.appendChild(boton);
     });
   });
+})();
+</script>
+
+<script>
+/* Biblioteca Digital: filtrado local sin modificar fichas ni enlaces. */
+(function iniciarFiltrosBiblioteca(){
+  const biblioteca = document.getElementById('biblioteca');
+  if (!biblioteca) return;
+  const input = document.getElementById('biblio-busqueda');
+  const botones = Array.from(biblioteca.querySelectorAll('.biblio-filtro-btn'));
+  const tarjetas = Array.from(biblioteca.querySelectorAll('.biblioteca-grid .biblio-card'));
+  const contador = document.getElementById('biblio-contador');
+  const limpiar = document.getElementById('biblio-limpiar');
+  const sinResultados = document.getElementById('biblio-sin-resultados');
+  let categoria = 'todas';
+  function normalizar(valor){
+    return String(valor).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es');
+  }
+  function actualizar(){
+    const consulta = normalizar(input.value.trim());
+    let visibles = 0;
+    tarjetas.forEach(function(tarjeta){
+      const coincideCategoria = categoria === 'todas' || tarjeta.dataset.finalidades.split(' ').includes(categoria);
+      const coincideTexto = !consulta || normalizar(tarjeta.querySelector('.biblio-info').textContent + ' ' + tarjeta.dataset.busqueda).includes(consulta);
+      const mostrar = coincideCategoria && coincideTexto;
+      tarjeta.hidden = !mostrar;
+      if(mostrar) visibles++;
+    });
+    contador.textContent = visibles + (visibles === 1 ? ' herramienta encontrada' : ' herramientas encontradas');
+    sinResultados.hidden = visibles !== 0;
+    limpiar.hidden = categoria === 'todas' && !input.value;
+    botones.forEach(function(boton){boton.setAttribute('aria-pressed', String(boton.dataset.filtro === categoria));});
+    // Una ficha abierta debe seguir correspondiendo a una tarjeta visible.
+    biblioteca.querySelectorAll('.biblio-ficha:not([hidden])').forEach(function(ficha){
+      const tarjeta = document.getElementById(ficha.id.replace('ficha-biblioteca-', 'tarjeta-'));
+      if (tarjeta && tarjeta.hidden) {
+        ficha.hidden = true;
+        const boton = tarjeta.querySelector('.biblio-descubrir');
+        if (boton) boton.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+  input.addEventListener('input', actualizar);
+  botones.forEach(function(boton){boton.addEventListener('click',function(){categoria=boton.dataset.filtro;actualizar();});});
+  limpiar.addEventListener('click',function(){input.value='';categoria='todas';actualizar();input.focus();});
+  actualizar();
 })();
 </script>
 </body>
