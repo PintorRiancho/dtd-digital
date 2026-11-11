@@ -1372,6 +1372,28 @@ color: var(--texto);
 }
 #roboteca .cerrar-ficha-roboteca:hover {background:#EEF3F0}
 #roboteca .cerrar-ficha-roboteca:focus-visible {outline:3px solid #8062A1;outline-offset:3px}
+
+/* ===== INICIO · LO ÚLTIMO EN DTD ===== */
+#inicio .novedades-dtd{margin:2px 0 8px;padding:29px 32px 31px;background:#fff;border:1px solid #D9E1DA;border-radius:22px;box-shadow:0 8px 24px rgba(46,57,52,.05)}
+#inicio .novedades-cabecera{display:grid;grid-template-columns:minmax(0,1fr) 165px;align-items:center;gap:24px;margin-bottom:24px}
+#inicio .novedades-etiqueta{display:block;color:#8062A1;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+#inicio .novedades-cabecera h2{color:#456D60;font-size:clamp(27px,3vw,37px);line-height:1.18;margin:0 0 10px}
+#inicio .novedades-cabecera p{font-size:16px;line-height:1.55;color:#4C5752;max-width:650px;margin:0}
+#inicio .novedades-mascota{display:flex;justify-content:center;align-items:center;min-height:135px}
+#inicio .novedades-mascota img{display:block;width:100%;max-width:150px;height:auto;object-fit:contain}
+#inicio .novedades-lista{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:14px;align-items:stretch}
+#inicio .novedad-tarjeta{min-width:0;display:flex;flex-direction:column;gap:10px;padding:20px 19px;border:1px solid #D9E1DA;border-top:4px solid #8062A1;border-radius:15px;background:#fff}
+#inicio .novedad-tarjeta:first-child{background:#F1F4F0;border-top-color:#456D60}
+#inicio .novedad-meta{font-size:11px;line-height:1.4;font-weight:700;letter-spacing:.045em;color:#647C72;text-transform:uppercase}
+#inicio .novedad-tarjeta h3{font-size:20px;line-height:1.27;margin:0;color:#304C42}
+#inicio .novedad-tarjeta p{font-size:14px;line-height:1.55;margin:0 0 4px;color:#4C5752;flex:1}
+#inicio .novedad-enlace{align-self:flex-start;font-size:14px;font-weight:700;color:#456D60;text-decoration:none;text-underline-offset:4px}
+#inicio .novedad-enlace:hover{text-decoration:underline;color:#35594D}
+#inicio .novedad-enlace:focus-visible{outline:3px solid #8062A1;outline-offset:5px;border-radius:2px}
+@media(max-width:900px){#inicio .novedades-lista{grid-template-columns:1fr 1fr}#inicio .novedad-tarjeta:first-child{grid-column:1/-1}}
+@media(max-width:650px){#inicio .novedades-dtd{padding:22px 19px}#inicio .novedades-cabecera{grid-template-columns:minmax(0,1fr) 100px;gap:10px}#inicio .novedades-mascota{min-height:95px}#inicio .novedades-mascota img{max-width:100px}#inicio .novedades-cabecera p{font-size:14px}#inicio .novedades-lista{grid-template-columns:1fr}#inicio .novedad-tarjeta:first-child{grid-column:auto}#inicio .novedad-tarjeta{padding:17px}#inicio .novedad-tarjeta h3{font-size:19px}}
+@media(max-width:390px){#inicio .novedades-cabecera{grid-template-columns:1fr}#inicio .novedades-mascota{justify-content:flex-start}#inicio .novedades-mascota img{max-width:105px}}
+
 </style>
 </head>
 
@@ -1447,6 +1469,40 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
     </p>
   </a>
 </div>
+
+<!-- Inicio: hasta tres novedades visibles; sustituir la más antigua al publicar otra. -->
+<section class="novedades-dtd" aria-labelledby="titulo-novedades-dtd">
+  <div class="novedades-cabecera">
+    <div>
+      <span class="novedades-etiqueta">Un espacio que sigue creciendo</span>
+      <h2 id="titulo-novedades-dtd">Lo último en DTD</h2>
+      <p>Descubre los nuevos recursos y propuestas que vamos incorporando a nuestra web.</p>
+    </div>
+    <div class="novedades-mascota">
+      <img src="dtd-novedades-v1.png" alt="Mascota DTD mostrando NEWS y señalando las novedades" loading="lazy">
+    </div>
+  </div>
+  <div class="novedades-lista">
+    <article class="novedad-tarjeta">
+      <span class="novedad-meta">11 noviembre 2026 · Biblioteca Digital</span>
+      <h3>La Biblioteca Digital crece</h3>
+      <p>Ya puedes explorar 16 herramientas con fichas de uso y propuestas para el trabajo docente.</p>
+      <a class="novedad-enlace" href="#biblioteca">Explorar las herramientas →</a>
+    </article>
+    <article class="novedad-tarjeta">
+      <span class="novedad-meta">En la web · Roboteca</span>
+      <h3>Materiales para aprender haciendo</h3>
+      <p>Consulta las fichas de los recursos del centro y sus actividades para Infantil y Primaria.</p>
+      <a class="novedad-enlace" href="#roboteca">Entrar en Roboteca →</a>
+    </article>
+    <article class="novedad-tarjeta">
+      <span class="novedad-meta">En la web · Compartir y crecer</span>
+      <h3>Propuestas listas para explorar</h3>
+      <p>Conoce los primeros materiales compartidos para enriquecer el trabajo en el aula.</p>
+      <a class="novedad-enlace" href="#compartir">Ver los materiales →</a>
+    </article>
+  </div>
+</section>
 </section>
    <section id="roboteca" class="oculto">
   <button class="volver" onclick="location.hash=''">
