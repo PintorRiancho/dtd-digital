@@ -1415,10 +1415,34 @@ color: var(--texto);
 #biblioteca .biblio-sin-resultados{margin:14px 0 26px;padding:18px;border:1px dashed #BACCC1;border-radius:12px;background:#fff;color:#4C5752}
 #biblioteca .biblio-card[hidden]{display:none!important}
 @media(max-width:650px){#biblioteca .biblio-filtros{padding:17px}#biblioteca .biblio-filtro-btn{font-size:12px;padding:8px 11px}}
+
+/* ACCESIBILIDAD: foco de teclado visible, incluso cuando el navegador no
+   aplica :focus-visible. Se conserva el aspecto en estado normal. */
+a:focus, button:focus, input:focus, summary:focus,
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid #5B397E !important;
+  outline-offset: 4px !important;
+}
+/* Foco particularmente reconocible en los accesos principales. */
+.menu-dtd a:focus, .bloques-portada > a.bloque-portada:focus {
+  outline: 4px solid #5B397E !important;
+  outline-offset: 5px !important;
+  box-shadow: 0 0 0 3px #FFFFFF, 0 0 0 7px #5B397E44;
+}
+.enlace-saltar {
+  position: fixed; z-index: 9999; top: 10px; left: 10px;
+  transform: translateY(-180%); padding: 12px 18px;
+  background: #304C42; color: white; border-radius: 9px;
+  font: 700 16px Arial,sans-serif; text-decoration: none;
+}
+.enlace-saltar:focus, .enlace-saltar:focus-visible { transform: none; color: white; }
+/* Los contenedores de sección pueden recibir foco tras navegar por el menú. */
+main > section:focus {outline: 3px solid #5B397E; outline-offset: 6px;}
 </style>
 </head>
 
 <body>
+<a class="enlace-saltar" href="#contenido-principal">Saltar al contenido principal</a>
 <header class="cabecera-dtd">
   <div class="cabecera-contenido">
 
@@ -1441,8 +1465,8 @@ color: var(--texto);
 
 
 
-  <main>
-<section id="inicio" class="portada">
+  <main id="contenido-principal" tabindex="-1">
+<section tabindex="-1" id="inicio" class="portada">
   <div class="hero-portada">
     <div class="hero-texto">
       <div class="hero-etiqueta">CEIP Pintor Agustín Riancho · Dinamización Digital</div>
@@ -1524,7 +1548,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
   </div>
 </section>
 </section>
-   <section id="roboteca" class="oculto">
+   <section tabindex="-1" id="roboteca" class="oculto">
   <button class="volver" onclick="location.hash=''">
     ← Volver al inicio
   </button>
@@ -4981,7 +5005,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
 </section>
 
 </section>
-   <section id="biblioteca" class="oculto">
+   <section tabindex="-1" id="biblioteca" class="oculto">
 <button class="volver" onclick="location.hash=''">← Volver al inicio</button>
 <div class="biblioteca-hero"><div class="biblioteca-texto"><div class="etiqueta">Formación y recursos para el profesorado</div>
 <h2>Biblioteca Digital DTD</h2><p class="biblioteca-intro">Herramientas, guías y propuestas para enseñar y crear con sentido pedagógico en Educación Infantil y Primaria.</p>
@@ -5501,7 +5525,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
 <div class="biblio-ficha-accesos"><a class="biblio-enlace-principal" href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Abrir Claude ↗</a></div>
 </div></section></div>
 </section></section>
-<section id="compartir" class="oculto">
+<section tabindex="-1" id="compartir" class="oculto">
   <button class="volver" onclick="location.hash=''">← Volver al inicio</button>
 
   <div class="compartir-hero">
@@ -5610,7 +5634,17 @@ if (destino === "robotica40" || destino === "digicraft") {
 }
     }
 
-    window.addEventListener("hashchange", navegar);
+    window.addEventListener("hashchange", function () {
+      navegar();
+      const id = location.hash.slice(1);
+      const destino = document.getElementById(id);
+      if (destino && (destino.matches('main > section') || id === 'robotica40' || id === 'digicraft')) {
+        if (!destino.hasAttribute('tabindex')) destino.setAttribute('tabindex', '-1');
+        destino.focus({preventScroll:true});
+      } else if (!id) {
+        document.getElementById('inicio').focus({preventScroll:true});
+      }
+    });
     navegar();
   </script>
 
