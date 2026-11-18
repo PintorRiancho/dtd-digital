@@ -1531,7 +1531,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
       <span class="novedad-meta">18 noviembre 2026 · Roboteca</span>
       <h3>Nuevo en Robótica 4.0: BBC micro:bit</h3>
       <p>Incorporamos al menos 10 kits de micro:bit, con dos propuestas de aula y una guía de iniciación para docentes elaborada desde DTD.</p>
-      <a class="novedad-enlace" href="#robotica40">Explorar micro:bit en Robótica 4.0 →</a>
+      <a class="novedad-enlace" href="#ficha-microbit">Explorar micro:bit en Robótica 4.0 →</a>
     </article>
     <article class="novedad-tarjeta">
       <span class="novedad-meta">11 noviembre 2026 · Biblioteca Digital</span>
@@ -5666,7 +5666,7 @@ Recursos y propuestas prácticas para explorar, crear y enseñar con tecnología
     function navegar() {
       const destino = location.hash.substring(1);
 const paginas = ["inicio", "roboteca", "biblioteca", "compartir"];
-  const pagina = ["robotica40", "digicraft"].includes(destino)
+  const pagina = ["robotica40", "digicraft", "ficha-microbit"].includes(destino)
   ? "roboteca"
   : (paginas.includes(destino) ? destino : "inicio");
 
@@ -5682,7 +5682,14 @@ document.getElementById("digicraft").classList.toggle(
   "oculto", destino !== "digicraft"
 );
 
-if (destino === "robotica40" || destino === "digicraft") {
+if (destino === "ficha-microbit") {
+  const ficha = document.getElementById("ficha-microbit");
+  ficha.open = true;
+  requestAnimationFrame(() => ficha.scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    block: 'start'
+  }));
+} else if (destino === "robotica40" || destino === "digicraft") {
   document.getElementById(destino).scrollIntoView({
     behavior: "smooth",
     block: "start"
@@ -5696,7 +5703,7 @@ if (destino === "robotica40" || destino === "digicraft") {
       navegar();
       const id = location.hash.slice(1);
       const destino = document.getElementById(id);
-      if (destino && (destino.matches('main > section') || id === 'robotica40' || id === 'digicraft')) {
+      if (destino && (destino.matches('main > section') || id === 'robotica40' || id === 'digicraft' || id === 'ficha-microbit')) {
         if (!destino.hasAttribute('tabindex')) destino.setAttribute('tabindex', '-1');
         destino.focus({preventScroll:true});
       } else if (!id) {
